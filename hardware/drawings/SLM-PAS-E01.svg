@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="431.8mm" height="279.4mm" viewBox="0 0 431.8 279.4">
+<rect width="431.8" height="279.4" fill="#FFFFFF"/>
+<g font-family="Aptos, 'Segoe UI', Arial, Helvetica, sans-serif" stroke-linecap="butt" stroke-linejoin="round">
+<path d="M15.000 10.000 L416.800 10.000 L416.800 269.400 L15.000 269.400 Z" fill="none" stroke="#141416" stroke-width="0.7"/>
+<text x="65.225" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">4</text>
+<text x="65.225" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">4</text>
+<path d="M115.450 7.000 L115.450 10.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M115.450 269.400 L115.450 272.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="165.675" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">3</text>
+<text x="165.675" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">3</text>
+<path d="M215.900 7.000 L215.900 10.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M215.900 269.400 L215.900 272.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="266.125" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">2</text>
+<text x="266.125" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">2</text>
+<path d="M316.350 7.000 L316.350 10.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M316.350 269.400 L316.350 272.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="366.575" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">1</text>
+<text x="366.575" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">1</text>
+<text x="10.000" y="43.425" font-size="3.640" text-anchor="middle" fill="#5A5A5C">D</text>
+<text x="421.800" y="43.425" font-size="3.640" text-anchor="middle" fill="#5A5A5C">D</text>
+<path d="M12.000 74.850 L15.000 74.850" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M416.800 74.850 L419.800 74.850" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="10.000" y="108.275" font-size="3.640" text-anchor="middle" fill="#5A5A5C">C</text>
+<text x="421.800" y="108.275" font-size="3.640" text-anchor="middle" fill="#5A5A5C">C</text>
+<path d="M12.000 139.700 L15.000 139.700" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M416.800 139.700 L419.800 139.700" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="10.000" y="173.125" font-size="3.640" text-anchor="middle" fill="#5A5A5C">B</text>
+<text x="421.800" y="173.125" font-size="3.640" text-anchor="middle" fill="#5A5A5C">B</text>
+<path d="M12.000 204.550 L15.000 204.550" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M416.800 204.550 L419.800 204.550" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="10.000" y="237.975" font-size="3.640" text-anchor="middle" fill="#5A5A5C">A</text>
+<text x="421.800" y="237.975" font-size="3.640" text-anchor="middle" fill="#5A5A5C">A</text>
+<path d="M266.800 10.000 L416.800 10.000 L416.800 15.000 L266.800 15.000 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.25"/>
+<text x="341.800" y="13.600" font-size="3.360" text-anchor="middle" fill="#FFFFFF" font-weight="bold">REVISIONS</text>
+<path d="M266.800 15.000 L416.800 15.000 L416.800 20.000 L266.800 20.000 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="272.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">REV</text>
+<text x="324.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">DESCRIPTION</text>
+<text x="381.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">DATE</text>
+<text x="404.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">APPROVED</text>
+<text x="272.800" y="23.800" font-size="3.080" text-anchor="middle" fill="#141416">A</text>
+<text x="280.300" y="23.800" font-size="3.080" text-anchor="start" fill="#141416">INITIAL ISSUE. REPLACES REV B SKETCHES</text>
+<text x="381.800" y="23.800" font-size="3.080" text-anchor="middle" fill="#141416">2026-11-10</text>
+<text x="404.800" y="23.800" font-size="3.080" text-anchor="middle" fill="#141416"></text>
+<path d="M266.800 10.000 L416.800 10.000 L416.800 25.500 L266.800 25.500 Z" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M266.800 15.000 L416.800 15.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M266.800 20.000 L416.800 20.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 15.000 L278.800 25.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M370.800 15.000 L370.800 25.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M392.800 15.000 L392.800 25.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M216.800 219.400 L416.800 219.400 L416.800 269.400 L216.800 269.400 Z" fill="none" stroke="#141416" stroke-width="0.7"/>
+<path d="M278.800 219.400 L278.800 269.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M336.800 219.400 L336.800 269.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<text x="218.300" y="222.800" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">UNLESS OTHERWISE SPECIFIED</text>
+<text x="218.300" y="227.000" font-size="2.940" text-anchor="start" fill="#141416">DIAGRAM. NOT TO SCALE</text>
+<text x="218.300" y="230.600" font-size="2.940" text-anchor="start" fill="#141416">NO DIMENSIONS ON THIS SHEET</text>
+<path d="M216.800 252.400 L278.800 252.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<circle cx="225.800" cy="260.900" r="3.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<circle cx="225.800" cy="260.900" r="1.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M221.800 260.900 L243.800 260.900" fill="none" stroke="#141416" stroke-width="0.25" stroke-dasharray="8 1.5 1.5 1.5"/>
+<path d="M233.800 259.400 L241.800 257.900 L241.800 263.900 L233.800 262.400 Z" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="243.800" y="258.000" font-size="2.380" text-anchor="start" fill="#141416">THIRD ANGLE PROJECTION</text>
+<text x="243.800" y="264.800" font-size="2.380" text-anchor="start" fill="#141416" font-weight="bold">DO NOT SCALE DRAWING</text>
+<path d="M278.800 225.400 L336.800 225.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 231.400 L336.800 231.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 237.400 L336.800 237.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 243.400 L336.800 243.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M294.800 219.400 L294.800 243.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M318.800 219.400 L318.800 243.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 219.400 L336.800 219.400 L336.800 225.400 L278.800 225.400 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="296.300" y="223.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">NAME</text>
+<text x="320.300" y="223.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">DATE</text>
+<text x="280.300" y="229.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">DRAWN</text>
+<text x="296.300" y="229.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="320.300" y="229.600" font-size="2.940" text-anchor="start" fill="#141416">2026-11-10</text>
+<text x="280.300" y="235.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">CHECKED</text>
+<text x="296.300" y="235.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="320.300" y="235.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="280.300" y="241.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">APPROVED</text>
+<text x="296.300" y="241.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="320.300" y="241.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="280.300" y="246.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">MATERIAL</text>
+<text x="280.300" y="250.000" font-size="2.800" text-anchor="start" fill="#141416">NOT APPLICABLE</text>
+<path d="M278.800 254.400 L336.800 254.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="280.300" y="257.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">FINISH</text>
+<text x="280.300" y="260.800" font-size="2.800" text-anchor="start" fill="#141416">NOT APPLICABLE</text>
+<path d="M278.800 262.400 L336.800 262.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="280.300" y="265.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">STATUS</text>
+<text x="292.800" y="267.000" font-size="3.220" text-anchor="start" fill="#141416" font-weight="bold">PRELIMINARY</text>
+<path d="M336.800 219.400 L416.800 219.400 L416.800 231.400 L336.800 231.400 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.25"/>
+<path d="M336.800 230.200 L416.800 230.200 L416.800 231.400 L336.800 231.400 Z" fill="#1E5470" stroke="#1E5470" stroke-width="0.25"/>
+<text x="376.800" y="227.000" font-size="5.273" text-anchor="middle" fill="#FFFFFF" font-weight="bold">S&amp;L MILESTONE SOLUTIONS</text>
+<text x="338.300" y="234.800" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">TITLE</text>
+<text x="376.800" y="240.400" font-size="5.040" text-anchor="middle" fill="#141416" font-weight="bold">INTERCONNECTION DIAGRAM</text>
+<text x="376.800" y="245.000" font-size="3.220" text-anchor="middle" fill="#141416">PASSIVE ACOUSTIC SENSOR NODE</text>
+<path d="M336.800 247.400 L416.800 247.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M348.800 247.400 L348.800 259.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M400.800 247.400 L400.800 259.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="338.300" y="250.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">SIZE</text>
+<text x="342.800" y="257.600" font-size="5.880" text-anchor="middle" fill="#141416" font-weight="bold">B</text>
+<text x="350.300" y="250.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">DWG NO</text>
+<text x="374.800" y="257.400" font-size="5.600" text-anchor="middle" fill="#141416" font-weight="bold">SLM-PAS-E01</text>
+<text x="402.300" y="250.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">REV</text>
+<text x="408.800" y="257.600" font-size="5.880" text-anchor="middle" fill="#141416" font-weight="bold">A</text>
+<path d="M336.800 259.400 L416.800 259.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M362.800 259.400 L362.800 269.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M390.800 259.400 L390.800 269.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="338.300" y="262.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">SCALE</text>
+<text x="349.800" y="267.400" font-size="3.920" text-anchor="middle" fill="#141416" font-weight="bold">NONE</text>
+<text x="364.300" y="262.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">PROJECT</text>
+<text x="376.800" y="267.400" font-size="3.080" text-anchor="middle" fill="#141416">PAS NODE</text>
+<text x="392.300" y="262.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">SHEET</text>
+<text x="403.800" y="267.400" font-size="3.920" text-anchor="middle" fill="#141416" font-weight="bold">1 OF 1</text>
+<path d="M32.000 52.000 L124.000 52.000 L124.000 118.000 L32.000 118.000 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.5"/>
+<path d="M32.000 52.000 L124.000 52.000 L124.000 60.000 L32.000 60.000 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.5"/>
+<text x="35.000" y="57.600" font-size="4.200" text-anchor="start" fill="#FFFFFF" font-weight="bold">A1</text>
+<text x="48.000" y="57.400" font-size="3.640" text-anchor="start" fill="#FFFFFF" font-weight="bold">MICROPHONE ARRAY</text>
+<text x="35.000" y="66.000" font-size="3.080" text-anchor="start" fill="#141416">SEEED reSpeaker XVF3800 USB 4-MIC ARRAY</text>
+<text x="35.000" y="70.200" font-size="3.080" text-anchor="start" fill="#141416">SKU 114993701, WITH CASE</text>
+<text x="35.000" y="74.400" font-size="3.080" text-anchor="start" fill="#141416">FIRMWARE: USB, 16 kHz, 6 CHANNEL</text>
+<text x="35.000" y="78.600" font-size="3.080" text-anchor="start" fill="#141416">POWERED FROM J1</text>
+<path d="M182.000 52.000 L254.000 52.000 L254.000 118.000 L182.000 118.000 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.5"/>
+<path d="M182.000 52.000 L254.000 52.000 L254.000 60.000 L182.000 60.000 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.5"/>
+<text x="185.000" y="57.600" font-size="4.200" text-anchor="start" fill="#FFFFFF" font-weight="bold">A2</text>
+<text x="198.000" y="57.400" font-size="3.640" text-anchor="start" fill="#FFFFFF" font-weight="bold">HOST COMPUTER</text>
+<text x="185.000" y="66.000" font-size="3.080" text-anchor="start" fill="#141416">WINDOWS 11 PC</text>
+<text x="185.000" y="70.200" font-size="3.080" text-anchor="start" fill="#141416">USB 2.0 HOST PORT OR FASTER</text>
+<text x="185.000" y="74.400" font-size="3.080" text-anchor="start" fill="#141416">SENSOR SOFTWARE AND BROWSER</text>
+<text x="185.000" y="78.600" font-size="3.080" text-anchor="start" fill="#141416">DASHBOARD ON 127.0.0.1:8765</text>
+<text x="185.000" y="82.800" font-size="3.080" text-anchor="start" fill="#141416">NO NETWORK REQUIRED</text>
+<path d="M124.000 92.000 L133.000 92.000 L133.000 100.000 L124.000 100.000 Z" fill="#FFFFFF" stroke="#141416" stroke-width="0.5"/>
+<text x="121.500" y="90.500" font-size="2.940" text-anchor="end" fill="#141416">J1  USB-C (XMOS PORT)</text>
+<path d="M173.000 92.000 L182.000 92.000 L182.000 100.000 L173.000 100.000 Z" fill="#FFFFFF" stroke="#141416" stroke-width="0.5"/>
+<text x="184.500" y="90.500" font-size="2.940" text-anchor="start" fill="#141416">J1  USB-A</text>
+<path d="M133.000 96.000 L173.000 96.000" fill="none" stroke="#141416" stroke-width="0.9"/>
+<path d="M137.500 96.000 L140.500 94.800 L140.500 97.200 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M168.500 96.000 L165.500 97.200 L165.500 94.800 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="135.000" y="102.200" font-size="3.080" text-anchor="start" fill="#141416" font-weight="bold">P1</text>
+<text x="171.000" y="102.200" font-size="3.080" text-anchor="end" fill="#141416" font-weight="bold">P2</text>
+<path d="M141.500 93.400 L148.500 93.400 L148.500 98.600 L141.500 98.600 Z" fill="#FFFFFF" stroke="#141416" stroke-width="0.25"/>
+<text x="145.000" y="91.400" font-size="2.800" text-anchor="middle" fill="#141416">FL1</text>
+<text x="153.000" y="86.500" font-size="4.200" text-anchor="middle" fill="#141416" font-weight="bold">W1</text>
+<text x="153.000" y="108.500" font-size="2.940" text-anchor="middle" fill="#141416">USB 2.0, 2 m, SHIELDED</text>
+<text x="35.000" y="88.000" font-size="2.940" text-anchor="start" fill="#141416">J2  SPEAKER OUTPUT: NC</text>
+<text x="35.000" y="92.200" font-size="2.940" text-anchor="start" fill="#141416">J3  3.5 mm JACK: NC</text>
+<text x="35.000" y="96.400" font-size="2.940" text-anchor="start" fill="#141416">J4  XIAO SOCKET USB-C: NC</text>
+<text x="35.000" y="100.600" font-size="2.940" text-anchor="start" fill="#141416">J5  I2S HEADER: NC</text>
+<path d="M218.000 118.000 L218.000 130.000" fill="none" stroke="#141416" stroke-width="0.5"/>
+<path d="M218.000 118.000 L218.800 121.000 L217.200 121.000 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="218.000" y="134.500" font-size="2.940" text-anchor="middle" fill="#141416">HOST POWER: MAINS ADAPTER OR BATTERY</text>
+<text x="218.000" y="138.500" font-size="2.940" text-anchor="middle" fill="#141416">AS SUPPLIED WITH A2</text>
+<text x="143.000" y="36.000" font-size="4.480" text-anchor="middle" fill="#141416" font-weight="bold">INTERCONNECTION</text>
+<path d="M121.223 37.200 L164.777 37.200" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="143.000" y="41.200" font-size="3.220" text-anchor="middle" fill="#141416">ONE CABLE. NO OTHER ELECTRICAL CONNECTIONS</text>
+<text x="32.000" y="150.000" font-size="3.920" text-anchor="start" fill="#1E5470" font-weight="bold">WIRE LIST, CABLE W1</text>
+<path d="M32.000 152.000 L218.000 152.000 L218.000 157.400 L32.000 157.400 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.25"/>
+<text x="33.500" y="155.492" font-size="3.080" text-anchor="start" fill="#FFFFFF" font-weight="bold">CONDUCTOR</text>
+<text x="57.500" y="155.492" font-size="3.080" text-anchor="start" fill="#FFFFFF" font-weight="bold">W1-P1 PIN (USB-C PLUG)</text>
+<text x="107.500" y="155.492" font-size="3.080" text-anchor="start" fill="#FFFFFF" font-weight="bold">W1-P2 PIN (USB-A)</text>
+<text x="143.500" y="155.492" font-size="3.080" text-anchor="start" fill="#FFFFFF" font-weight="bold">SIGNAL</text>
+<text x="33.500" y="160.892" font-size="3.080" text-anchor="start" fill="#141416">1</text>
+<text x="57.500" y="160.892" font-size="3.080" text-anchor="start" fill="#141416">A4, A9, B4, B9</text>
+<text x="107.500" y="160.892" font-size="3.080" text-anchor="start" fill="#141416">1</text>
+<text x="143.500" y="160.892" font-size="3.080" text-anchor="start" fill="#141416">VBUS, +5 V</text>
+<path d="M32.000 162.800 L218.000 162.800 L218.000 168.200 L32.000 168.200 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="33.500" y="166.292" font-size="3.080" text-anchor="start" fill="#141416">2</text>
+<text x="57.500" y="166.292" font-size="3.080" text-anchor="start" fill="#141416">A7</text>
+<text x="107.500" y="166.292" font-size="3.080" text-anchor="start" fill="#141416">2</text>
+<text x="143.500" y="166.292" font-size="3.080" text-anchor="start" fill="#141416">D-</text>
+<text x="33.500" y="171.692" font-size="3.080" text-anchor="start" fill="#141416">3</text>
+<text x="57.500" y="171.692" font-size="3.080" text-anchor="start" fill="#141416">A6</text>
+<text x="107.500" y="171.692" font-size="3.080" text-anchor="start" fill="#141416">3</text>
+<text x="143.500" y="171.692" font-size="3.080" text-anchor="start" fill="#141416">D+</text>
+<path d="M32.000 173.600 L218.000 173.600 L218.000 179.000 L32.000 179.000 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="33.500" y="177.092" font-size="3.080" text-anchor="start" fill="#141416">4</text>
+<text x="57.500" y="177.092" font-size="3.080" text-anchor="start" fill="#141416">A1, A12, B1, B12</text>
+<text x="107.500" y="177.092" font-size="3.080" text-anchor="start" fill="#141416">4</text>
+<text x="143.500" y="177.092" font-size="3.080" text-anchor="start" fill="#141416">GND</text>
+<text x="33.500" y="182.492" font-size="3.080" text-anchor="start" fill="#141416">NONE</text>
+<text x="57.500" y="182.492" font-size="3.080" text-anchor="start" fill="#141416">A5 (CC)</text>
+<text x="107.500" y="182.492" font-size="3.080" text-anchor="start" fill="#141416">NO CONNECTION</text>
+<text x="143.500" y="182.492" font-size="3.080" text-anchor="start" fill="#141416">56 KILOHM PULL-UP TO VBUS INSIDE P1</text>
+<path d="M32.000 184.400 L218.000 184.400 L218.000 189.800 L32.000 189.800 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="33.500" y="187.892" font-size="3.080" text-anchor="start" fill="#141416">SHIELD</text>
+<text x="57.500" y="187.892" font-size="3.080" text-anchor="start" fill="#141416">SHELL</text>
+<text x="107.500" y="187.892" font-size="3.080" text-anchor="start" fill="#141416">SHELL</text>
+<text x="143.500" y="187.892" font-size="3.080" text-anchor="start" fill="#141416">CABLE SHIELD, BONDED AT BOTH ENDS</text>
+<path d="M32.000 152.000 L218.000 152.000 L218.000 189.800 L32.000 189.800 Z" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M32.000 157.400 L218.000 157.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 162.800 L218.000 162.800" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 168.200 L218.000 168.200" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 173.600 L218.000 173.600" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 179.000 L218.000 179.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 184.400 L218.000 184.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M56.000 152.000 L56.000 189.800" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M106.000 152.000 L106.000 189.800" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M142.000 152.000 L142.000 189.800" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="32.000" y="200.000" font-size="3.920" text-anchor="start" fill="#1E5470" font-weight="bold">REFERENCE DESIGNATIONS</text>
+<path d="M32.000 202.000 L206.000 202.000 L206.000 207.400 L32.000 207.400 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.25"/>
+<text x="33.500" y="205.492" font-size="3.080" text-anchor="start" fill="#FFFFFF" font-weight="bold">REF</text>
+<text x="57.500" y="205.492" font-size="3.080" text-anchor="start" fill="#FFFFFF" font-weight="bold">DESCRIPTION</text>
+<text x="137.500" y="205.492" font-size="3.080" text-anchor="start" fill="#FFFFFF" font-weight="bold">PART NUMBER</text>
+<text x="33.500" y="210.892" font-size="3.080" text-anchor="start" fill="#141416">A1</text>
+<text x="57.500" y="210.892" font-size="3.080" text-anchor="start" fill="#141416">MICROPHONE ARRAY WITH CASE</text>
+<text x="137.500" y="210.892" font-size="3.080" text-anchor="start" fill="#141416">SEEED 114993701</text>
+<path d="M32.000 212.800 L206.000 212.800 L206.000 218.200 L32.000 218.200 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="33.500" y="216.292" font-size="3.080" text-anchor="start" fill="#141416">A2</text>
+<text x="57.500" y="216.292" font-size="3.080" text-anchor="start" fill="#141416">HOST COMPUTER</text>
+<text x="137.500" y="216.292" font-size="3.080" text-anchor="start" fill="#141416">EXISTING WINDOWS 11 PC</text>
+<text x="33.500" y="221.692" font-size="3.080" text-anchor="start" fill="#141416">W1</text>
+<text x="57.500" y="221.692" font-size="3.080" text-anchor="start" fill="#141416">CABLE, USB-C TO USB-A, 2 m</text>
+<text x="137.500" y="221.692" font-size="3.080" text-anchor="start" fill="#141416">STARTECH USB2AC2M</text>
+<path d="M32.000 223.600 L206.000 223.600 L206.000 229.000 L32.000 229.000 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="33.500" y="227.092" font-size="3.080" text-anchor="start" fill="#141416">FL1</text>
+<text x="57.500" y="227.092" font-size="3.080" text-anchor="start" fill="#141416">FERRITE, SNAP-ON (OPTIONAL)</text>
+<text x="137.500" y="227.092" font-size="3.080" text-anchor="start" fill="#141416">FAIR-RITE 0431164281</text>
+<path d="M32.000 202.000 L206.000 202.000 L206.000 229.000 L32.000 229.000 Z" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M32.000 207.400 L206.000 207.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 212.800 L206.000 212.800" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 218.200 L206.000 218.200" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M32.000 223.600 L206.000 223.600" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M56.000 202.000 L56.000 229.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M136.000 202.000 L136.000 229.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="270.000" y="37.000" font-size="3.920" text-anchor="start" fill="#1E5470" font-weight="bold">NOTES:</text>
+<text x="270.000" y="41.950" font-size="3.360" text-anchor="start" fill="#141416">1.</text>
+<text x="276.000" y="41.950" font-size="3.360" text-anchor="start" fill="#141416">W1 CONNECTS A1-J1 DIRECTLY TO A HOST PORT. NO UNPOWERED HUB.</text>
+<text x="270.000" y="46.700" font-size="3.360" text-anchor="start" fill="#141416">2.</text>
+<text x="276.000" y="46.700" font-size="3.360" text-anchor="start" fill="#141416">TOTAL USB CABLE LENGTH 3 m MAX WITHOUT AN ACTIVE EXTENSION.</text>
+<text x="270.000" y="51.450" font-size="3.360" text-anchor="start" fill="#141416">3.</text>
+<text x="276.000" y="51.450" font-size="3.360" text-anchor="start" fill="#141416">A1 IS POWERED FROM J1 ONLY. SUPPLY CURRENT IS NOT PUBLISHED</text>
+<text x="276.000" y="55.400" font-size="3.360" text-anchor="start" fill="#141416">BY THE MANUFACTURER. MEASURE IT (TEST HB-3).</text>
+<text x="276.000" y="59.350" font-size="3.360" text-anchor="start" fill="#141416">LIMIT 500 mA, ONE USB 2.0 PORT.</text>
+<text x="270.000" y="64.100" font-size="3.360" text-anchor="start" fill="#141416">4.</text>
+<text x="276.000" y="64.100" font-size="3.360" text-anchor="start" fill="#141416">A1-J2 TO J5 ARE NOT CONNECTED (NC). NO SOLDERING.</text>
+<text x="276.000" y="68.050" font-size="3.360" text-anchor="start" fill="#141416">NO MAINS WIRING.</text>
+<text x="270.000" y="72.800" font-size="3.360" text-anchor="start" fill="#141416">5.</text>
+<text x="276.000" y="72.800" font-size="3.360" text-anchor="start" fill="#141416">FL1 IS FITTED ONLY IF INTERFERENCE IS SEEN ON THE AUDIO.</text>
+<text x="276.000" y="76.750" font-size="3.360" text-anchor="start" fill="#141416">PLACE IT WITHIN 50 mm OF P1 AND TIE IT IN PLACE.</text>
+<text x="270.000" y="81.500" font-size="3.360" text-anchor="start" fill="#141416">6.</text>
+<text x="276.000" y="81.500" font-size="3.360" text-anchor="start" fill="#141416">PIN ASSIGNMENTS ARE THOSE OF A STANDARD USB 2.0 TYPE-C TO</text>
+<text x="276.000" y="85.450" font-size="3.360" text-anchor="start" fill="#141416">TYPE-A CABLE. W1 IS A PURCHASED PART AND IS NOT MODIFIED.</text>
+<text x="270.000" y="90.200" font-size="3.360" text-anchor="start" fill="#141416">7.</text>
+<text x="276.000" y="90.200" font-size="3.360" text-anchor="start" fill="#141416">CONNECTOR DESIGNATORS ON A1 ARE ASSIGNED BY THIS DRAWING.</text>
+<text x="276.000" y="94.150" font-size="3.360" text-anchor="start" fill="#141416">THEY ARE NOT THE MANUFACTURER'S MARKINGS.</text>
+<text x="270.000" y="98.900" font-size="3.360" text-anchor="start" fill="#141416">8.</text>
+<text x="276.000" y="98.900" font-size="3.360" text-anchor="start" fill="#141416">THE FOUR RAW MICROPHONES ARE CAPTURE CHANNELS 2 TO 5,</text>
+<text x="276.000" y="102.850" font-size="3.360" text-anchor="start" fill="#141416">COUNTING FROM 0, OF THE 6 CHANNEL 16 kHz USB AUDIO STREAM.</text>
+<text x="276.000" y="106.800" font-size="3.360" text-anchor="start" fill="#141416">SEE firmware/PROVISIONING.md.</text>
+<text x="270.000" y="111.550" font-size="3.360" text-anchor="start" fill="#141416">9.</text>
+<text x="276.000" y="111.550" font-size="3.360" text-anchor="start" fill="#141416">PRELIMINARY. NOT VERIFIED ON HARDWARE.</text>
+</g></svg>

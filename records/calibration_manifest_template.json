@@ -1,0 +1,15 @@
+{
+  "operator": "",
+  "truth_method": "example: 4 m circle laid out by tape from the stand; azimuths by protractor board; 0 degrees toward the north stake",
+  "notes": "site, weather, temperature, loudspeaker model and signal, mount configuration (strap, pad, foam cap)",
+  "positions": [
+    {"wav": "recordings/hb5/FILE_000.wav", "true_azimuth_deg": 0, "distance_m": 4.0, "elevation_deg": 0},
+    {"wav": "recordings/hb5/FILE_045.wav", "true_azimuth_deg": 45, "distance_m": 4.0, "elevation_deg": 0},
+    {"wav": "recordings/hb5/FILE_090.wav", "true_azimuth_deg": 90, "distance_m": 4.0, "elevation_deg": 0},
+    {"wav": "recordings/hb5/FILE_135.wav", "true_azimuth_deg": 135, "distance_m": 4.0, "elevation_deg": 0},
+    {"wav": "recordings/hb5/FILE_180.wav", "true_azimuth_deg": 180, "distance_m": 4.0, "elevation_deg": 0},
+    {"wav": "recordings/hb5/FILE_225.wav", "true_azimuth_deg": 225, "distance_m": 4.0, "elevation_deg": 0},
+    {"wav": "recordings/hb5/FILE_270.wav", "true_azimuth_deg": 270, "distance_m": 4.0, "elevation_deg": 0},
+    {"wav": "recordings/hb5/FILE_315.wav", "true_azimuth_deg": 315, "distance_m": 4.0, "elevation_deg": 0}
+  ]
+}

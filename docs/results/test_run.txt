@@ -1,0 +1,253 @@
+Automated test run, Revision B, software 0.2.2
+Command: python -m unittest discover -s tests -t . -v
+Python 3.14.7, NumPy 2.5.4, sounddevice 0.5.6, Windows 11 x64, Intel Core Ultra 7 155H. Run on 2026-11-10.
+Log lines printed by the software under test (injected faults) are part of the expected output.
+One test is skipped here by design: the checksum test runs after packaging.
+
+test_argument_errors_exit_with_code_2 (tests.test_dashboard.CommandLineTests.test_argument_errors_exit_with_code_2) ... ok
+test_mode_is_required_and_announced (tests.test_dashboard.CommandLineTests.test_mode_is_required_and_announced) ... ok
+test_revision_a_entry_point_still_works (tests.test_dashboard.CommandLineTests.test_revision_a_entry_point_still_works) ... ok
+test_version_and_help (tests.test_dashboard.CommandLineTests.test_version_and_help) ... ok
+test_page_loads_nothing_from_other_origins_and_has_no_inline_code (tests.test_dashboard.DashboardSourceTests.test_page_loads_nothing_from_other_origins_and_has_no_inline_code) ... ok
+test_page_states_its_limits (tests.test_dashboard.DashboardSourceTests.test_page_states_its_limits) ... ok
+test_script_never_injects_markup_or_evaluates_text (tests.test_dashboard.DashboardSourceTests.test_script_never_injects_markup_or_evaluates_text) ... ok
+test_script_only_reads (tests.test_dashboard.DashboardSourceTests.test_script_only_reads) ... ok
+test_bearing_shown_only_with_value_and_badges_tell_its_standing (tests.test_dashboard.OperatorViewTests.test_bearing_shown_only_with_value_and_badges_tell_its_standing) ... ok
+test_candidate_wording_never_claims_identity_or_probability (tests.test_dashboard.OperatorViewTests.test_candidate_wording_never_claims_identity_or_probability) ... ok
+test_faults_take_over_the_headline_and_hide_results (tests.test_dashboard.OperatorViewTests.test_faults_take_over_the_headline_and_hide_results) ... ok
+test_listening_explains_why_no_candidate (tests.test_dashboard.OperatorViewTests.test_listening_explains_why_no_candidate) ... ok
+test_mode_is_always_labelled (tests.test_dashboard.OperatorViewTests.test_mode_is_always_labelled) ... ok
+test_model_score_is_labelled_as_a_score (tests.test_dashboard.OperatorViewTests.test_model_score_is_labelled_as_a_score) ... ok
+test_overflow_clipping_and_recording_are_flagged (tests.test_dashboard.OperatorViewTests.test_overflow_clipping_and_recording_are_flagged) ... ok
+test_binds_to_loopback_only (tests.test_dashboard.ServerTests.test_binds_to_loopback_only) ... ok
+test_foreign_host_header_is_refused (tests.test_dashboard.ServerTests.test_foreign_host_header_is_refused) ... ok
+test_read_only_and_no_path_traversal (tests.test_dashboard.ServerTests.test_read_only_and_no_path_traversal) ... ok
+test_security_headers (tests.test_dashboard.ServerTests.test_security_headers) ... ok
+test_static_files_are_served (tests.test_dashboard.ServerTests.test_static_files_are_served) ... ok
+test_status_is_strict_json_with_operator_view (tests.test_dashboard.ServerTests.test_status_is_strict_json_with_operator_view) ... ok
+test_events_update_in_place (tests.test_dashboard.SharedStateTests.test_events_update_in_place) ... ok
+test_stale_result_loses_bearing_and_candidate (tests.test_dashboard.SharedStateTests.test_stale_result_loses_bearing_and_candidate) ... ok
+test_terminal_states_do_not_go_stale_and_snapshots_are_isolated (tests.test_dashboard.SharedStateTests.test_terminal_states_do_not_go_stale_and_snapshots_are_isolated) ... ok
+test_clipping (tests.test_dsp.AudioQualityTests.test_clipping) ... ok
+test_dead_channel (tests.test_dsp.AudioQualityTests.test_dead_channel) ... ok
+test_duplicate_channel (tests.test_dsp.AudioQualityTests.test_duplicate_channel) ... ok
+test_level_imbalance_is_a_warning (tests.test_dsp.AudioQualityTests.test_level_imbalance_is_a_warning) ... ok
+test_nonfinite (tests.test_dsp.AudioQualityTests.test_nonfinite) ... ok
+test_settings_validation (tests.test_dsp.AudioQualityTests.test_settings_validation) ... ok
+test_silence (tests.test_dsp.AudioQualityTests.test_silence) ... ok
+test_wrong_shape_rejected (tests.test_dsp.AudioQualityTests.test_wrong_shape_rejected) ... ok
+test_competing_sources_are_withheld_or_point_at_one_source (tests.test_dsp.BearingTests.test_competing_sources_are_withheld_or_point_at_one_source) ... ok
+test_ground_reflection_keeps_azimuth (tests.test_dsp.BearingTests.test_ground_reflection_keeps_azimuth) ... ok
+test_independent_noise_gives_no_bearing (tests.test_dsp.BearingTests.test_independent_noise_gives_no_bearing) ... ok
+test_inverted_channel_is_flagged (tests.test_dsp.BearingTests.test_inverted_channel_is_flagged) ... ok
+test_known_bearings_broadband_and_rotor (tests.test_dsp.BearingTests.test_known_bearings_broadband_and_rotor) ... ok
+test_low_snr_withholds_rather_than_misleads (tests.test_dsp.BearingTests.test_low_snr_withholds_rather_than_misleads) ... ok
+test_moderate_snr_accuracy (tests.test_dsp.BearingTests.test_moderate_snr_accuracy) ... ok
+test_near_field_source_keeps_bearing (tests.test_dsp.BearingTests.test_near_field_source_keeps_bearing) ... ok
+test_overhead_source_gives_no_azimuth (tests.test_dsp.BearingTests.test_overhead_source_gives_no_azimuth) ... ok
+test_pair_delays_match_geometry (tests.test_dsp.BearingTests.test_pair_delays_match_geometry) ... ok
+test_pure_tone_bearing_is_withheld (tests.test_dsp.BearingTests.test_pure_tone_bearing_is_withheld) ... ok
+test_rev_a_and_rev_b_agree_on_clean_signals (tests.test_dsp.BearingTests.test_rev_a_and_rev_b_agree_on_clean_signals) ... ok
+test_rev_a_generator_cross_check (tests.test_dsp.BearingTests.test_rev_a_generator_cross_check) ... ok
+test_rotated_channel_order_is_a_consistent_offset (tests.test_dsp.BearingTests.test_rotated_channel_order_is_a_consistent_offset) ... ok
+test_swapped_channels_are_detected (tests.test_dsp.BearingTests.test_swapped_channels_are_detected) ... ok
+test_temperature_error_does_not_bias_azimuth (tests.test_dsp.BearingTests.test_temperature_error_does_not_bias_azimuth) ... ok
+test_angle_conventions (tests.test_dsp.GeometryTests.test_angle_conventions) ... ok
+test_circular_statistics (tests.test_dsp.GeometryTests.test_circular_statistics) ... ok
+test_expected_tdoa_sign (tests.test_dsp.GeometryTests.test_expected_tdoa_sign) ... ok
+test_invalid_geometry_rejected (tests.test_dsp.GeometryTests.test_invalid_geometry_rejected) ... ok
+test_speed_of_sound (tests.test_dsp.GeometryTests.test_speed_of_sound) ... ok
+test_fundamental_estimate_off_any_grid (tests.test_dsp.HarmonicFeatureTests.test_fundamental_estimate_off_any_grid) ... ok
+test_noise_has_no_comb (tests.test_dsp.HarmonicFeatureTests.test_noise_has_no_comb) ... ok
+test_rev_a_score_depended_on_its_search_grid (tests.test_dsp.HarmonicFeatureTests.test_rev_a_score_depended_on_its_search_grid) ... ok
+test_single_tone_is_not_a_comb (tests.test_dsp.HarmonicFeatureTests.test_single_tone_is_not_a_comb) ... ok
+test_spectrum_summary_shape (tests.test_dsp.HarmonicFeatureTests.test_spectrum_summary_shape) ... ok
+test_steady_machine_hum_also_scores (tests.test_dsp.HarmonicFeatureTests.test_steady_machine_hum_also_scores) ... ok
+test_arrival_order_by_direct_correlation (tests.test_dsp.SimulatorIndependenceTests.test_arrival_order_by_direct_correlation) ... ok
+test_sinc_interpolation_recovers_fractional_delay (tests.test_dsp.SimulatorIndependenceTests.test_sinc_interpolation_recovers_fractional_delay) ... ok
+test_spherical_spreading (tests.test_dsp.SimulatorIndependenceTests.test_spherical_spreading) ... ok
+test_follows_a_moving_source_and_wraps (tests.test_gate_config.BearingTrackerTests.test_follows_a_moving_source_and_wraps) ... ok
+test_missing_frame_releases_nothing (tests.test_gate_config.BearingTrackerTests.test_missing_frame_releases_nothing) ... ok
+test_needs_agreement_before_release (tests.test_gate_config.BearingTrackerTests.test_needs_agreement_before_release) ... ok
+test_scattered_estimates_are_not_released (tests.test_gate_config.BearingTrackerTests.test_scattered_estimates_are_not_released) ... ok
+test_bad_values_are_errors (tests.test_gate_config.ConfigTests.test_bad_values_are_errors) ... ok
+test_calibration_requires_matching_physical_record (tests.test_gate_config.ConfigTests.test_calibration_requires_matching_physical_record) ... ok
+test_config_hash_changes_with_content (tests.test_gate_config.ConfigTests.test_config_hash_changes_with_content) ... ok
+test_example_file_is_valid_and_uncalibrated (tests.test_gate_config.ConfigTests.test_example_file_is_valid_and_uncalibrated) ... ok
+test_revision_a_configuration_is_upgraded (tests.test_gate_config.ConfigTests.test_revision_a_configuration_is_upgraded) ... ok
+test_unknown_keys_are_errors (tests.test_gate_config.ConfigTests.test_unknown_keys_are_errors) ... ok
+test_summary_statistics (tests.test_gate_config.EventBuilderTests.test_summary_statistics) ... ok
+test_baselining_until_enough_ambient (tests.test_gate_config.EventGateTests.test_baselining_until_enough_ambient) ... ok
+test_each_criterion_blocks_and_is_reported (tests.test_gate_config.EventGateTests.test_each_criterion_blocks_and_is_reported) ... ok
+test_fault_and_overflow_frames_do_not_count_or_move_floor (tests.test_gate_config.EventGateTests.test_fault_and_overflow_frames_do_not_count_or_move_floor) ... ok
+test_floor_ignores_short_loud_events_and_follows_slow_change (tests.test_gate_config.EventGateTests.test_floor_ignores_short_loud_events_and_follows_slow_change) ... ok
+test_loud_single_tone_never_becomes_candidate (tests.test_gate_config.EventGateTests.test_loud_single_tone_never_becomes_candidate) ... ok
+test_onset_needs_k_of_m_and_release_has_hysteresis (tests.test_gate_config.EventGateTests.test_onset_needs_k_of_m_and_release_has_hysteresis) ... ok
+test_reset_window_clears_persistence (tests.test_gate_config.EventGateTests.test_reset_window_clears_persistence) ... ok
+test_distant_times_are_not_grouped (tests.test_multinode.AssociationTests.test_distant_times_are_not_grouped) ... ok
+test_groups_by_time_and_fundamental_and_flags_ambiguity (tests.test_multinode.AssociationTests.test_groups_by_time_and_fundamental_and_flags_ambiguity) ... ok
+test_acoustic_pipeline_to_position (tests.test_multinode.EndToEndTwoNodeTests.test_acoustic_pipeline_to_position) ... ok
+test_geodetic_to_enu (tests.test_multinode.FrameTests.test_geodetic_to_enu) ... ok
+test_observation_conversion_and_gates (tests.test_multinode.FrameTests.test_observation_conversion_and_gates) ... ok
+test_ellipse_stretches_along_range_for_shallow_crossing (tests.test_multinode.FusionTests.test_ellipse_stretches_along_range_for_shallow_crossing) ... ok
+test_error_sources_are_separated_and_add_in_quadrature (tests.test_multinode.FusionTests.test_error_sources_are_separated_and_add_in_quadrature) ... ok
+test_exact_crossing_and_honest_status (tests.test_multinode.FusionTests.test_exact_crossing_and_honest_status) ... ok
+test_rejections (tests.test_multinode.FusionTests.test_rejections) ... ok
+test_sigma_has_a_floor_and_comes_from_the_site_by_default (tests.test_multinode.FusionTests.test_sigma_has_a_floor_and_comes_from_the_site_by_default) ... ok
+test_site_file_validation (tests.test_multinode.FusionTests.test_site_file_validation) ... ok
+test_three_nodes_expose_an_inconsistent_bearing (tests.test_multinode.FusionTests.test_three_nodes_expose_an_inconsistent_bearing) ... ok
+test_uncertainty_matches_closed_form_and_monte_carlo (tests.test_multinode.FusionTests.test_uncertainty_matches_closed_form_and_monte_carlo) ... ok
+test_revision_a_utility_agrees_on_the_crossing_point (tests.test_multinode.LegacyCompatibilityTests.test_revision_a_utility_agrees_on_the_crossing_point) ... ok
+test_emission_time_alignment_removes_motion_bias (tests.test_multinode.TrackTests.test_emission_time_alignment_removes_motion_bias) ... ok
+test_gap_in_one_track_withholds_the_estimate (tests.test_multinode.TrackTests.test_gap_in_one_track_withholds_the_estimate) ... ok
+test_interpolation_wraps_through_north (tests.test_multinode.TrackTests.test_interpolation_wraps_through_north) ... ok
+test_acute_crossing_rejected (test_triangulate.TriangulationTests.test_acute_crossing_rejected) ... ok
+test_behind_node_rejected (test_triangulate.TriangulationTests.test_behind_node_rejected) ... ok
+test_calibration_and_sigma_gates (test_triangulate.TriangulationTests.test_calibration_and_sigma_gates) ... ok
+test_empty_event_id_rejected (test_triangulate.TriangulationTests.test_empty_event_id_rejected) ... ok
+test_exact_intersection_and_status (test_triangulate.TriangulationTests.test_exact_intersection_and_status) ... ok
+test_future_timestamp_rejected (test_triangulate.TriangulationTests.test_future_timestamp_rejected) ... ok
+test_inputs_not_mutated (test_triangulate.TriangulationTests.test_inputs_not_mutated) ... ok
+test_monte_carlo_repeatable_and_nonzero (test_triangulate.TriangulationTests.test_monte_carlo_repeatable_and_nonzero) ... ok
+test_nonfinite_and_boolean_numbers_rejected (test_triangulate.TriangulationTests.test_nonfinite_and_boolean_numbers_rejected) ... ok
+test_parallel_rejected (test_triangulate.TriangulationTests.test_parallel_rejected) ... ok
+test_reception_time_difference_rejected (test_triangulate.TriangulationTests.test_reception_time_difference_rejected) ... ok
+test_short_baseline_rejected (test_triangulate.TriangulationTests.test_short_baseline_rejected) ... ok
+test_stale_rejected (test_triangulate.TriangulationTests.test_stale_rejected) ... ok
+test_uncertain_geometry_rejected (test_triangulate.TriangulationTests.test_uncertain_geometry_rejected) ... ok
+test_wrong_event_id_rejected (test_triangulate.TriangulationTests.test_wrong_event_id_rejected) ... ok
+test_bom_rows_are_complete_and_dated (tests.test_package.PackageTests.test_bom_rows_are_complete_and_dated) ... ok
+test_cad_outputs_match_the_generator (tests.test_package.PackageTests.test_cad_outputs_match_the_generator) ... ok
+test_carrier_plate_features_stay_clear_of_each_other (tests.test_package.PackageTests.test_carrier_plate_features_stay_clear_of_each_other) ... ok
+test_checksums_match_when_present (tests.test_package.PackageTests.test_checksums_match_when_present) ... skipped 'SHA256SUMS.txt is written by tools/make_release.py'
+test_demo_page_is_self_contained_and_labelled_simulated (tests.test_package.PackageTests.test_demo_page_is_self_contained_and_labelled_simulated) ... ok
+test_documents_the_readme_points_to_exist (tests.test_package.PackageTests.test_documents_the_readme_points_to_exist) ... ok
+test_drawing_pdfs_are_well_formed (tests.test_package.PackageTests.test_drawing_pdfs_are_well_formed) ... ok
+test_drawing_sheets_are_branded_numbered_and_preliminary (tests.test_package.PackageTests.test_drawing_sheets_are_branded_numbered_and_preliminary) ... ok
+test_drawing_text_does_not_collide_or_leave_the_sheet (tests.test_package.PackageTests.test_drawing_text_does_not_collide_or_leave_the_sheet) ... ok
+test_house_style_no_long_dashes (tests.test_package.PackageTests.test_house_style_no_long_dashes) ... ok
+test_no_firmware_or_model_binaries_are_bundled (tests.test_package.PackageTests.test_no_firmware_or_model_binaries_are_bundled) ... ok
+test_requirement_ids_are_unique_and_have_a_status (tests.test_package.PackageTests.test_requirement_ids_are_unique_and_have_a_status) ... ok
+test_templates_and_examples_parse (tests.test_package.PackageTests.test_templates_and_examples_parse) ... ok
+test_tests_named_in_the_requirements_exist (tests.test_package.PackageTests.test_tests_named_in_the_requirements_exist) ... ok
+test_version_is_consistent (tests.test_package.PackageTests.test_version_is_consistent) ... ok
+test_driver_rejecting_the_format_is_reported (tests.test_pipeline.DeviceSelectionTests.test_driver_rejecting_the_format_is_reported) ... ok
+test_explicit_index_and_name_override (tests.test_pipeline.DeviceSelectionTests.test_explicit_index_and_name_override) ... ok
+test_missing_device_lists_what_was_seen (tests.test_pipeline.DeviceSelectionTests.test_missing_device_lists_what_was_seen) ... ok
+test_prefers_configured_host_api_and_name (tests.test_pipeline.DeviceSelectionTests.test_prefers_configured_host_api_and_name) ... ok
+test_two_arrays_are_ambiguous (tests.test_pipeline.DeviceSelectionTests.test_two_arrays_are_ambiguous) ... ok
+test_two_channel_endpoint_is_refused (tests.test_pipeline.DeviceSelectionTests.test_two_channel_endpoint_is_refused) ... ok
+test_chunks_are_contiguous_and_stamped_from_the_adc_clock (tests.test_pipeline.LiveSourceTests.test_chunks_are_contiguous_and_stamped_from_the_adc_clock) ... ok
+test_driver_overflow_marks_a_gap (tests.test_pipeline.LiveSourceTests.test_driver_overflow_marks_a_gap) ... ok
+test_full_queue_drops_are_counted_and_flagged (tests.test_pipeline.LiveSourceTests.test_full_queue_drops_are_counted_and_flagged) ... ok
+test_odd_buffer_sizes_are_reassembled (tests.test_pipeline.LiveSourceTests.test_odd_buffer_sizes_are_reassembled) ... ok
+test_opens_one_six_channel_stream_at_16k (tests.test_pipeline.LiveSourceTests.test_opens_one_six_channel_stream_at_16k) ... ok
+test_stall_and_disconnect_raise_faults (tests.test_pipeline.LiveSourceTests.test_stall_and_disconnect_raise_faults) ... ok
+test_bad_audio_blocks_give_no_candidate_or_bearing (tests.test_pipeline.PipelineIntegrationTests.test_bad_audio_blocks_give_no_candidate_or_bearing) ... ok
+test_calibrated_bearing_applies_offset_mirror_and_site_heading (tests.test_pipeline.PipelineIntegrationTests.test_calibrated_bearing_applies_offset_mirror_and_site_heading) ... ok
+test_overflow_block_is_excluded_and_reported (tests.test_pipeline.PipelineIntegrationTests.test_overflow_block_is_excluded_and_reported) ... OVERFLOW: samples lost before sample index 81920
+ok
+test_quiet_scene_raises_nothing (tests.test_pipeline.PipelineIntegrationTests.test_quiet_scene_raises_nothing) ... ok
+test_simulated_candidate_with_bearing_and_labels (tests.test_pipeline.PipelineIntegrationTests.test_simulated_candidate_with_bearing_and_labels) ... ok
+test_source_present_from_start_up_is_masked (tests.test_pipeline.PipelineIntegrationTests.test_source_present_from_start_up_is_masked) ... ok
+test_uncalibrated_live_bearing_is_withheld (tests.test_pipeline.PipelineIntegrationTests.test_uncalibrated_live_bearing_is_withheld) ... ok
+test_inverted_microphone_raises_a_visible_warning (tests.test_pipeline.PolarityWarningTests.test_inverted_microphone_raises_a_visible_warning) ... ok
+test_no_audio_files_unless_recording_is_requested (tests.test_pipeline.RecorderReplayTests.test_no_audio_files_unless_recording_is_requested) ... ok
+test_record_then_replay_round_trip_with_gap_and_rotation (tests.test_pipeline.RecorderReplayTests.test_record_then_replay_round_trip_with_gap_and_rotation) ... OVERFLOW: samples lost before sample index 61440
+ok
+test_replay_is_reproducible (tests.test_pipeline.RecorderReplayTests.test_replay_is_reproducible) ... ok
+test_replay_rejects_wrong_format_and_reads_24_bit (tests.test_pipeline.RecorderReplayTests.test_replay_rejects_wrong_format_and_reads_24_bit) ... ok
+test_device_missing_at_start_then_appears (tests.test_pipeline.RecoveryTests.test_device_missing_at_start_then_appears) ... NOT_FOUND: injected: device not present
+NOT_FOUND: injected: device not present
+ok
+test_health_records_are_logged (tests.test_pipeline.RecoveryTests.test_health_records_are_logged) ... DISCONNECTED: injected: device unplugged
+OVERFLOW: samples lost before sample index 59392
+ok
+test_live_recovers_from_disconnect_and_stall (tests.test_pipeline.RecoveryTests.test_live_recovers_from_disconnect_and_stall) ... DISCONNECTED: injected: device unplugged
+STALLED: injected: no audio arrived
+ok
+test_replay_fault_is_final (tests.test_pipeline.RecoveryTests.test_replay_fault_is_final) ... software fault: Traceback (most recent call last):
+  File "<project>\pasensor\pipeline.py", line 83, in run
+    chunk = source.read()
+  File "<project>\pasensor\acquisition.py", line 363, in read
+    raise RuntimeError("injected software fault")
+RuntimeError: injected software fault
+
+SOFTWARE_FAULT: RuntimeError: injected software fault
+ok
+test_software_fault_restarts_then_gives_up_when_repeated (tests.test_pipeline.RecoveryTests.test_software_fault_restarts_then_gives_up_when_repeated) ... software fault: Traceback (most recent call last):
+  File "<project>\pasensor\pipeline.py", line 83, in run
+    chunk = source.read()
+  File "<project>\pasensor\acquisition.py", line 363, in read
+    raise RuntimeError("injected software fault")
+RuntimeError: injected software fault
+
+SOFTWARE_FAULT: RuntimeError: injected software fault
+software fault: Traceback (most recent call last):
+  File "<project>\pasensor\pipeline.py", line 83, in run
+    chunk = source.read()
+  File "<project>\pasensor\acquisition.py", line 363, in read
+    raise RuntimeError("injected software fault")
+RuntimeError: injected software fault
+
+SOFTWARE_FAULT: RuntimeError: injected software fault
+software fault: Traceback (most recent call last):
+  File "<project>\pasensor\pipeline.py", line 83, in run
+    chunk = source.read()
+  File "<project>\pasensor\acquisition.py", line 363, in read
+    raise RuntimeError("injected software fault")
+RuntimeError: injected software fault
+
+SOFTWARE_FAULT: RuntimeError: injected software fault
+software fault: Traceback (most recent call last):
+  File "<project>\pasensor\pipeline.py", line 83, in run
+    chunk = source.read()
+  File "<project>\pasensor\acquisition.py", line 363, in read
+    raise RuntimeError("injected software fault")
+RuntimeError: injected software fault
+
+SOFTWARE_FAULT: RuntimeError: injected software fault
+software fault: Traceback (most recent call last):
+  File "<project>\pasensor\pipeline.py", line 83, in run
+    chunk = source.read()
+  File "<project>\pasensor\acquisition.py", line 363, in read
+    raise RuntimeError("injected software fault")
+RuntimeError: injected software fault
+
+SOFTWARE_FAULT: RuntimeError: injected software fault
+software fault: Traceback (most recent call last):
+  File "<project>\pasensor\pipeline.py", line 83, in run
+    chunk = source.read()
+  File "<project>\pasensor\acquisition.py", line 363, in read
+    raise RuntimeError("injected software fault")
+RuntimeError: injected software fault
+
+SOFTWARE_FAULT: RuntimeError: injected software fault
+ok
+test_stop_event_ends_the_run (tests.test_pipeline.RecoveryTests.test_stop_event_ends_the_run) ... ok
+test_command_line_writes_the_record (tests.test_tools.CalibrationTests.test_command_line_writes_the_record) ... ok
+test_recovers_rotation_and_mirror (tests.test_tools.CalibrationTests.test_recovers_rotation_and_mirror) ... ok
+test_swapped_channels_fail_calibration (tests.test_tools.CalibrationTests.test_swapped_channels_fail_calibration) ... ok
+test_synthetic_record_cannot_enable_bearing_but_a_physical_one_can (tests.test_tools.CalibrationTests.test_synthetic_record_cannot_enable_bearing_but_a_physical_one_can) ... ok
+test_weak_evidence_does_not_pass (tests.test_tools.CalibrationTests.test_weak_evidence_does_not_pass) ... ok
+test_channel_map_confirms_or_contradicts_the_configuration (tests.test_tools.ChannelToolTests.test_channel_map_confirms_or_contradicts_the_configuration) ... ok
+test_channel_report_exposes_a_delayed_processed_output (tests.test_tools.ChannelToolTests.test_channel_report_exposes_a_delayed_processed_output) ... ok
+test_tap_identifies_the_loudest_channel (tests.test_tools.ChannelToolTests.test_tap_identifies_the_loudest_channel) ... ok
+test_event_metrics_on_synthetic_sessions (tests.test_tools.EvaluationTests.test_event_metrics_on_synthetic_sessions) ... ok
+test_rate_interval (tests.test_tools.EvaluationTests.test_rate_interval) ... ok
+test_purge_lists_first_and_deletes_only_on_confirm (tests.test_tools.RetentionTests.test_purge_lists_first_and_deletes_only_on_confirm) ... ok
+test_generated_manifest_is_marked_synthetic (tests.test_tools.SyntheticDatasetTests.test_generated_manifest_is_marked_synthetic) ... ok
+test_damaged_or_mismatched_model_files_are_rejected (tests.test_tools.TrainingTests.test_damaged_or_mismatched_model_files_are_rejected) ... ok
+test_features_ignore_loudness (tests.test_tools.TrainingTests.test_features_ignore_loudness) ... ok
+test_identical_audio_in_two_partitions_is_refused (tests.test_tools.TrainingTests.test_identical_audio_in_two_partitions_is_refused) ... ok
+test_manifest_errors_are_explicit (tests.test_tools.TrainingTests.test_manifest_errors_are_explicit) ... ok
+test_resample_and_auc_helpers (tests.test_tools.TrainingTests.test_resample_and_auc_helpers) ... ok
+test_synthetic_model_is_refused_for_real_audio (tests.test_tools.TrainingTests.test_synthetic_model_is_refused_for_real_audio) ... ok
+test_trained_model_is_valid_marked_synthetic_and_documented (tests.test_tools.TrainingTests.test_trained_model_is_valid_marked_synthetic_and_documented) ... ok
+test_training_command_reports_dataset_problems (tests.test_tools.TrainingTests.test_training_command_reports_dataset_problems) ... ok
+test_whole_groups_go_to_one_partition (tests.test_tools.TrainingTests.test_whole_groups_go_to_one_partition) ... ok
+
+----------------------------------------------------------------------
+Ran 178 tests in 126.040s
+
+OK (skipped=1)

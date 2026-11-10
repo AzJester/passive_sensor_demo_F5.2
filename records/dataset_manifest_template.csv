@@ -1,0 +1,4 @@
+path,label,session_id,site,day,source,start_s,end_s,synthetic
+recordings/site1/BACKGROUND_FILE.wav,background,site1-2026-11-20-background-1,site1,2026-11-20,own recording,,,false
+recordings/site1/FLIGHT_FILE.wav,drone,site1-2026-11-20-flight-1,site1,2026-11-20,own recording with owner consent,62.0,121.0,false
+recordings/site1/FLIGHT_FILE.wav,background,site1-2026-11-20-flight-1,site1,2026-11-20,own recording with owner consent,0.0,55.0,false

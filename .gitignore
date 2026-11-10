@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+recordings/
+logs/
+dist/
+config/node.json

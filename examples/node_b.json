@@ -1,0 +1,10 @@
+{
+  "node_id": "B",
+  "x_m": 20,
+  "y_m": 0,
+  "bearing_deg": 135,
+  "bearing_sigma_deg": 5,
+  "timestamp_s": 1000,
+  "source_event_id": "SYNTHETIC-ONE",
+  "calibrated": true
+}

@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passive acoustic sensor demo | S&amp;L Milestone Solutions</title>
+<style>
+:root { --obsidian:#1C1C1E; --marine:#1E5470; --lightmarine:#5A9AB5; --bg:#F0F4F6; --ink:#141416; --gray:#5A5A5C; --line:#E8EAEC;
+  --good:#0ca30c; --warn:#fab219; --cand:#ec835a; --bad:#d03b3b; --sim:#6250d6; --series:#2a78d6; --series2:#eb6834; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.4 Aptos, "Segoe UI", Arial, Helvetica, sans-serif; }
+p.note { font-family: Garamond, "EB Garamond", Georgia, serif; font-size:16px; color:var(--gray); margin:6px 0 0; }
+header { background:var(--obsidian); color:#fff; display:flex; align-items:center; gap:18px; padding:10px 18px; border-bottom:4px solid var(--marine); flex-wrap:wrap; }
+header .brand { font-weight:700; letter-spacing:.12em; font-size:15px; }
+header .product { color:#c9d6dd; font-size:14px; }
+.tabs { margin-left:auto; display:flex; gap:6px; }
+.tabs button { background:transparent; color:#fff; border:1px solid #5a5a5c; border-radius:6px; padding:7px 14px; font:inherit; cursor:pointer; }
+.tabs button.on { background:var(--marine); border-color:var(--marine); font-weight:600; }
+#err { background:var(--bad); color:#fff; padding:8px 18px; font-weight:600; white-space:pre-wrap; }
+main { padding:14px 18px 24px; max-width:1500px; margin:0 auto; }
+.simbar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.badge { font-weight:700; color:#fff; padding:6px 12px; border-radius:6px; letter-spacing:.03em;
+  background:repeating-linear-gradient(135deg, var(--sim) 0 10px, #4a3aa7 10px 20px); }
+.headline { flex:1 1 320px; background:#fff; border:1px solid var(--line); border-left:8px solid var(--gray); border-radius:8px; padding:9px 12px; font-size:17px; font-weight:600; }
+.headline[data-s="ok"] { border-left-color:var(--good); } .headline[data-s="candidate"] { border-left-color:var(--cand); }
+.headline[data-s="warning"] { border-left-color:var(--warn); } .headline[data-s="fault"] { border-left-color:var(--bad); }
+.controls { background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 12px; display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+.controls label { font-size:13px; color:var(--gray); display:flex; align-items:center; gap:6px; }
+.controls select, .controls button, .panel3d button, .panel3d select { font:inherit; padding:5px 9px; border:1px solid #b9c2c8; border-radius:6px; background:#fff; cursor:pointer; }
+.controls button.fault { border-color:var(--bad); color:var(--bad); }
+.grid { display:grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr) minmax(0,1.15fr); gap:12px; }
+@media (max-width:1100px) { .grid { grid-template-columns:1fr; } }
+.card { background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px; min-width:0; }
+.card h2 { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--marine); margin:0 0 8px; }
+.card h2 span { text-transform:none; letter-spacing:0; color:var(--gray); font-weight:400; margin-left:6px; }
+.big { font-size:22px; font-weight:700; margin:0 0 4px; }
+canvas { display:block; width:100%; }
+table { border-collapse:collapse; width:100%; font-size:13px; }
+td, th { text-align:left; padding:3px 6px 3px 0; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums; }
+th { color:var(--gray); font-weight:600; }
+td.v { font-weight:700; white-space:nowrap; }
+ul.reasons { margin:4px 0 0; padding-left:18px; font-size:13px; color:var(--gray); }
+.wide { grid-column: 1 / -1; }
+.two { display:grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap:12px; }
+@media (max-width:1100px) { .two { grid-template-columns:1fr; } }
+.stage { position:relative; background:#dfe6ea; border-radius:8px; overflow:hidden; border:1px solid var(--line); }
+#gl { width:100%; height:640px; display:block; touch-action:none; cursor:grab; }
+.chip { position:absolute; transform:translate(-50%,-50%); background:#fff; border:1.5px solid var(--obsidian); color:var(--obsidian); font-weight:700; font-size:12px;
+  width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; pointer-events:none; }
+.chip.hot { background:var(--marine); color:#fff; border-color:var(--marine); }
+.panel3d { display:flex; flex-direction:column; gap:10px; }
+.panel3d .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; font-size:13px; color:var(--gray); }
+.parts tr { cursor:default; } .parts tr.hot td { background:#e3eef3; }
+.stamp { position:absolute; left:12px; bottom:10px; font-size:12px; color:#33454f; background:rgba(255,255,255,.8); padding:4px 8px; border-radius:6px; max-width:70%; }
+.wide3d { grid-template-columns:minmax(0,2.1fr) minmax(0,1fr); }
+@media (max-width:1100px) { .wide3d { grid-template-columns:1fr; } }
+@media (max-width:700px) { #gl { height:420px; } .stamp { max-width:none; right:12px; font-size:11px; } .tabs { margin-left:0; } }
+.card { overflow-x:auto; }
+.controls label { max-width:100%; } .controls select { min-width:0; max-width:100%; }
+footer { color:var(--gray); font-size:12px; padding:0 18px 20px; max-width:1500px; margin:0 auto; }
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">S&amp;L MILESTONE SOLUTIONS</span>
+  <span class="product">Passive acoustic sensor node, demonstration</span>
+  <div class="tabs"><button id="tabbtn-sim" class="on">Simulated sensor</button><button id="tabbtn-3d">Hardware in 3D</button></div>
+</header>
+<div id="err" hidden></div>
+
+<main id="tab-sim">
+  <div class="simbar">
+    <span class="badge">SIMULATED DATA - NOT REAL AUDIO</span>
+    <div class="headline" id="headline" data-s="notice">Starting.</div>
+  </div>
+  <div class="controls">
+    <label>Scene <select id="scenario">
+      <option value="orbit">Multirotor circling the sensor</option>
+      <option value="flyby">Multirotor flying past</option>
+      <option value="fan">Machine with a steady hum (false alert source)</option>
+      <option value="tone">Single tone (alarm or whistle)</option>
+      <option value="two">Multirotor and machine together</option>
+      <option value="quiet">Ambient noise only</option>
+    </select></label>
+    <label>Distance <input type="range" id="range" min="15" max="250" value="40"> <b id="rangev">40 m</b></label>
+    <label>Ambient noise <input type="range" id="noise" min="-72" max="-44" value="-62"> <b id="noisev">-62 dBFS</b></label>
+    <button id="pause">Pause</button>
+    <button class="fault" data-fault="unplug">Unplug the array</button>
+    <button class="fault" data-fault="stall">Stall the input</button>
+    <button class="fault" data-fault="overflow">Lose samples</button>
+    <button class="fault" data-fault="clip">Overload (clip)</button>
+  </div>
+  <p class="note" style="margin:-4px 0 12px">Source loudness and ambient noise are made-up settings that show how the logic behaves. They do not predict how far away a real sensor can hear anything.</p>
+  <div class="grid">
+    <div class="card">
+      <h2>Scene from above <span>truth, visible only because this is a simulation</span></h2>
+      <canvas id="scene" width="600" height="600"></canvas>
+      <p class="note">The blue ray is the sensor's bearing estimate. It has direction only. The sensor does not know how far away the source is.</p>
+    </div>
+    <div class="card">
+      <h2>Bearing <span>direction only, no range</span></h2>
+      <p class="big" id="brg">BEARING UNAVAILABLE</p>
+      <canvas id="dial" width="420" height="420"></canvas>
+      <ul class="reasons" id="reasons"></ul>
+      <table id="brgtab"></table>
+    </div>
+    <div class="card">
+      <h2>Sound candidate <span>heuristic score, not a probability</span></h2>
+      <p class="big" id="cand">Not assessed</p>
+      <p class="note" id="candcap"></p>
+      <table id="candtab"></table>
+      <h2 style="margin-top:12px">Spectrum of the current block <span>dots mark detected harmonics</span></h2>
+      <canvas id="spec" width="640" height="210"></canvas>
+    </div>
+    <div class="card wide two">
+      <div>
+        <h2>Band level and ambient floor <span>shaded where a candidate is active</span></h2>
+        <canvas id="strip" width="900" height="190"></canvas>
+      </div>
+      <div>
+        <h2>Candidate events <span>newest first</span></h2>
+        <table id="events"><thead><tr><th>Start</th><th>Duration</th><th>Fundamental</th><th>Mean bearing</th><th>Actual source</th></tr></thead><tbody></tbody></table>
+        <p class="note" id="noevents">No candidates yet. The first ten seconds measure the ambient floor.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main id="tab-3d" hidden>
+  <div class="two wide3d">
+    <div class="stage" id="stage">
+      <canvas id="gl"></canvas>
+      <div class="stamp">Mock-up built from the drawing dimensions (SLM-PAS-A01). It is not a photograph. Nothing shown has been built. Case appearance, case height, and USB socket position are not verified. The table and computer are stand-ins.</div>
+    </div>
+    <div class="card panel3d">
+      <h2>View</h2>
+      <div class="row">
+        <button data-view="head">Sensor head</button><button data-view="top">From above</button><button data-view="under">From below</button><button data-view="site">Deployed on its stand</button>
+      </div>
+      <div class="row"><label>Exploded <input type="range" id="explode" min="0" max="100" value="0"></label>
+        <label><input type="checkbox" id="capon" checked> Foam cap</label>
+        <label><input type="checkbox" id="xray" checked> See-through cap</label>
+        <label><input type="checkbox" id="spin"> Turn slowly</label>
+        <label><input type="checkbox" id="labels" checked> Item numbers</label></div>
+      <p class="note">Drag to turn. Scroll or pinch to zoom. Point at a row to light up the part.</p>
+      <h2>Parts <span>item numbers match drawing SLM-PAS-A01</span></h2>
+      <table class="parts" id="parts"></table>
+    </div>
+  </div>
+</main>
+
+<footer>Demonstration only. The left tab synthesizes four microphone signals in your browser and runs a simplified JavaScript estimator on them. The Python package is the reference implementation. Nothing here is measured performance, and no real hardware has been tested. Works offline: this page loads nothing from the internet.</footer>
+
+<script>
+"use strict";
+window.addEventListener("error", function (e) { const b = document.getElementById("err"); b.hidden = false; b.textContent += "Script error: " + e.message + " (line " + e.lineno + ")\n"; });
+const $ = (id) => document.getElementById(id);
+const Q = new URLSearchParams(location.search);
+
+// ======================================================================= signal simulation
+const FS = 16000, BLOCK = 4096, HOP = 2048, C = 343.2, DF = FS / BLOCK;
+const GEOM = [[0.033, -0.033], [0.033, 0.033], [-0.033, 0.033], [-0.033, -0.033]];
+const PAIRS = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]];
+const BAND = [Math.ceil(300 / DF), Math.floor(3400 / DF)];
+const HB = [Math.ceil(60 / DF), Math.floor(4000 / DF)];
+const N2 = BLOCK * 4;
+const HANN = new Float64Array(BLOCK);
+for (let i = 0; i < BLOCK; i++) HANN[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / BLOCK);
+
+function fft(re, im, inverse) {
+  const n = re.length;
+  for (let i = 1, j = 0; i < n; i++) {
+    let bit = n >> 1;
+    for (; j & bit; bit >>= 1) j ^= bit;
+    j ^= bit;
+    if (i < j) { let t = re[i]; re[i] = re[j]; re[j] = t; t = im[i]; im[i] = im[j]; im[j] = t; }
+  }
+  for (let len = 2; len <= n; len <<= 1) {
+    const ang = 2 * Math.PI / len * (inverse ? 1 : -1), wr = Math.cos(ang), wi = Math.sin(ang), half = len >> 1;
+    for (let i = 0; i < n; i += len) {
+      let cr = 1, ci = 0;
+      for (let k = 0; k < half; k++) {
+        const a = i + k, b = a + half;
+        const xr = re[b] * cr - im[b] * ci, xi = re[b] * ci + im[b] * cr;
+        re[b] = re[a] - xr; im[b] = im[a] - xi; re[a] += xr; im[a] += xi;
+        const t = cr * wr - ci * wi; ci = cr * wi + ci * wr; cr = t;
+      }
+    }
+  }
+}
+
+// deterministic random numbers so every run of the demo looks the same
+let seed = 20261110;
+function rnd() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+function gauss() { let u = 0; while (u === 0) u = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * rnd()); }
+
+function makeRotor(f0, rotors, detune, harmonics) {
+  // each rotor repeats exactly, so one period goes into a table and playback is a table lookup
+  const N = 2048, f = [], tables = [], amp = [];
+  let power = 0;
+  for (let h = 1; h <= harmonics; h++) { amp.push(Math.pow(h, -0.7)); power += amp[h - 1] * amp[h - 1] / 2; }
+  const scale = 1 / Math.sqrt(power * rotors);
+  for (let r = 0; r < rotors; r++) {
+    const fr = f0 * (1 + detune * (rotors > 1 ? (2 * r / (rotors - 1) - 1) : 0)), table = new Float64Array(N + 1);
+    for (let h = 1; h <= harmonics && h * fr <= 7000; h++) {
+      const phase = 2 * Math.PI * rnd();
+      for (let i = 0; i <= N; i++) table[i] += scale * amp[h - 1] * Math.sin(2 * Math.PI * h * i / N + phase);
+    }
+    f.push(fr); tables.push(table);
+  }
+  return function (tau) {
+    let s = 0;
+    for (let r = 0; r < rotors; r++) {
+      let x = f[r] * tau; x = (x - Math.floor(x)) * N;
+      const i = x | 0, table = tables[r];
+      s += table[i] + (table[i + 1] - table[i]) * (x - i);
+    }
+    return s;
+  };
+}
+const SIGNALS = { rotor: makeRotor(165, 4, 0.012, 14), fan: makeRotor(120, 1, 0, 10), tone: (tau) => Math.SQRT2 * Math.sin(2 * Math.PI * 1000 * tau) };
+
+const sim = { t: 0, scenario: Q.get("scenario") || "orbit", range: +(Q.get("range") || 40), noiseDb: +(Q.get("noise") || -62), paused: false,
+  ring: [0, 1, 2, 3].map(() => new Float64Array(BLOCK)), valid: 0, levels: [], floor: null, window: [], active: false, event: null, events: [],
+  track: [], history: [], fault: null, faultUntil: 0, lastFrameWall: performance.now(), status: null, restarts: 0, lost: 0 };
+
+function sources(t) {
+  // each source: kind, position [x, y, z] in metres (x along the array +X axis, y along +Y, z up), level at 1 m
+  const R = sim.range, out = [];
+  const drone = () => {
+    const a = (20 + (t - 12) * 6) * Math.PI / 180;
+    return { kind: "rotor", name: "multirotor", pos: [R * Math.cos(a), R * Math.sin(a), 0.4 * R], level: 0.5 };
+  };
+  const on = t >= 12;
+  if (sim.scenario === "orbit" && on) out.push(drone());
+  if (sim.scenario === "flyby" && on) {
+    const u = ((t - 12) % 40) / 40;
+    out.push({ kind: "rotor", name: "multirotor", pos: [-4 * R + 8 * R * u, R, 0.5 * R], level: 0.5 });
+  }
+  if ((sim.scenario === "fan" || sim.scenario === "two") && on && ((t - 12) % 45) < 30)
+    out.push({ kind: "fan", name: "machine", pos: [-0.17 * R * 1.2, 0.98 * R * 1.2 * 0.4, 0.5], level: 0.16 });
+  if (sim.scenario === "two" && on) out.push(drone());
+  if (sim.scenario === "tone" && on) out.push({ kind: "tone", name: "tone", pos: [-0.34 * R, -0.94 * R, 2], level: 0.3 });
+  return out;
+}
+
+function synthHop() {
+  const hop = [0, 1, 2, 3].map(() => new Float64Array(HOP));
+  const sigma = Math.pow(10, sim.noiseDb / 20);
+  const t0 = sim.t, t1 = sim.t + HOP / FS;
+  const a = sources(t0), b = sources(t1);
+  for (let m = 0; m < 4; m++) {
+    const out = hop[m];
+    for (let i = 0; i < HOP; i++) out[i] = sigma * gauss();
+    for (let s = 0; s < a.length && s < b.length; s++) {
+      const d0 = Math.hypot(a[s].pos[0] - GEOM[m][0], a[s].pos[1] - GEOM[m][1], a[s].pos[2]);
+      const d1 = Math.hypot(b[s].pos[0] - GEOM[m][0], b[s].pos[1] - GEOM[m][1], b[s].pos[2]);
+      const sig = SIGNALS[a[s].kind], level = a[s].level;
+      for (let i = 0; i < HOP; i++) {
+        const d = d0 + (d1 - d0) * i / HOP;
+        out[i] += level / Math.max(d, 0.5) * sig(t0 + i / FS - d / C);
+      }
+    }
+  }
+  if (sim.fault === "clip") for (let m = 0; m < 4; m++) for (let i = 0; i < HOP; i++) hop[m][i] = Math.max(-1, Math.min(1, hop[m][i] * 400));
+  return hop;
+}
+
+// ======================================================================= simplified estimator
+const reA = [0, 1, 2, 3].map(() => new Float64Array(BLOCK)), imA = [0, 1, 2, 3].map(() => new Float64Array(BLOCK));
+const re2 = new Float64Array(N2), im2 = new Float64Array(N2);
+const power = new Float64Array(BLOCK / 2 + 1), floorArr = new Float64Array(BLOCK / 2 + 1), prom = new Float64Array(BLOCK / 2 + 1);
+
+function analyze() {
+  const r = { audio: "OK", reasons: [], bearing: null, harmonic: { f0: null, count: 0, score: 0, freqs: [] } };
+  let peak = 0, sumsq = 0;
+  for (let m = 0; m < 4; m++) {
+    const x = sim.ring[m];
+    let mean = 0; for (let i = 0; i < BLOCK; i++) mean += x[i]; mean /= BLOCK;
+    for (let i = 0; i < BLOCK; i++) { const v = x[i]; if (Math.abs(v) > peak) peak = Math.abs(v); const d = v - mean; sumsq += d * d; reA[m][i] = d * HANN[i]; imA[m][i] = 0; }
+    fft(reA[m], imA[m], false);
+  }
+  r.levelDb = 10 * Math.log10(Math.max(sumsq / (4 * BLOCK), 1e-16));
+  if (peak >= 0.999) { r.audio = "CLIPPING"; r.reasons = ["The audio block is not usable (clipping)."]; r.bandDb = r.levelDb; return r; }
+  let band = 0;
+  for (let k = 0; k <= BLOCK / 2; k++) {
+    let p = 0; for (let m = 0; m < 4; m++) p += reA[m][k] * reA[m][k] + imA[m][k] * imA[m][k];
+    power[k] = p / 4; if (k >= BAND[0] && k <= BAND[1]) band += power[k];
+  }
+  r.bandDb = 10 * Math.log10(Math.max(2 * band / (BLOCK * BLOCK * 0.375), 1e-16));
+  // local noise floor: median over about 200 Hz, refreshed every fourth bin
+  const win = [];
+  for (let k = HB[0]; k <= HB[1]; k++) {
+    if ((k - HB[0]) % 4 === 0) {
+      win.length = 0;
+      for (let j = Math.max(HB[0], k - 25); j <= Math.min(HB[1], k + 25); j++) win.push(power[j]);
+      win.sort((p, q) => p - q);
+      floorArr[k] = Math.max(win[win.length >> 1], 1e-30);
+    } else floorArr[k] = floorArr[k - 1];
+    prom[k] = 10 * Math.log10(Math.max(power[k], 1e-30) / floorArr[k]);
+  }
+  // harmonic comb search
+  let best = -1e9, bestF = 0;
+  for (let f0 = 70; f0 <= 500; f0++) {
+    let merit = 0;
+    for (let h = 1; h <= 16; h++) {
+      const fc = h * f0; if (fc > 3990) break;
+      const centre = Math.round(fc / DF), hw = Math.ceil(0.015 * fc / DF) + 1;
+      let pk = -99; for (let k = Math.max(HB[0], centre - hw); k <= Math.min(HB[1], centre + hw); k++) if (prom[k] > pk) pk = prom[k];
+      merit += pk >= 9 ? Math.min(pk, 30) : -6;
+    }
+    if (merit > best) { best = merit; bestF = f0; }
+  }
+  let count = 0, sum = 0, fsum = 0, wsum = 0; const freqs = [];
+  for (let h = 1; h <= 16; h++) {
+    const fc = h * bestF; if (fc > 3990) break;
+    const centre = Math.round(fc / DF), hw = Math.ceil(0.015 * fc / DF) + 1;
+    let pk = -99, at = centre; for (let k = Math.max(HB[0], centre - hw); k <= Math.min(HB[1], centre + hw); k++) if (prom[k] > pk) { pk = prom[k]; at = k; }
+    if (pk >= 9) { count++; sum += pk; freqs.push(at * DF); fsum += pk * at * DF / h; wsum += pk; }
+  }
+  if (count) r.harmonic = { f0: fsum / wsum, count: count, score: Math.min(count / 8, 1) * Math.min(sum / count / 20, 1), freqs: freqs, prom: sum / count };
+
+  // bearing: pair delays from generalized cross-correlation, then one plane wave fitted to them
+  let tonal = 0, tonalPower = 0;
+  for (let k = BAND[0]; k <= BAND[1]; k++) if (prom[k] >= 6) { tonal++; tonalPower += power[k]; }
+  const useTonal = tonal >= 12;
+  const used = useTonal ? tonal : BAND[1] - BAND[0] + 1;
+  const taus = [], quals = [];
+  for (const [i, j] of PAIRS) {
+    re2.fill(0); im2.fill(0);
+    for (let k = BAND[0]; k <= BAND[1]; k++) {
+      if (useTonal && prom[k] < 6) continue;
+      const cr = reA[i][k] * reA[j][k] + imA[i][k] * imA[j][k], ci = imA[i][k] * reA[j][k] - reA[i][k] * imA[j][k];
+      const mag = Math.hypot(cr, ci) || 1;
+      re2[k] = cr / mag; im2[k] = ci / mag; re2[N2 - k] = cr / mag; im2[N2 - k] = -ci / mag;
+    }
+    fft(re2, im2, true);
+    const reach = Math.ceil(Math.hypot(GEOM[j][0] - GEOM[i][0], GEOM[j][1] - GEOM[i][1]) / C * FS * 4) + 6;
+    let pk = -1e9, at = 0;
+    for (let n = -reach; n <= reach; n++) { const v = re2[(n + N2) % N2]; if (v > pk) { pk = v; at = n; } }
+    const y0 = re2[(at - 1 + N2) % N2], y2 = re2[(at + 1 + N2) % N2], den = y0 - 2 * pk + y2;
+    const frac = den < 0 ? Math.max(-0.5, Math.min(0.5, 0.5 * (y0 - y2) / den)) : 0;
+    taus.push((at + frac) / (FS * 4)); quals.push(pk / (2 * used));
+  }
+  let mxx = 0, mxy = 0, myy = 0, vx = 0, vy = 0;
+  PAIRS.forEach(([i, j], p) => { const bx = GEOM[j][0] - GEOM[i][0], by = GEOM[j][1] - GEOM[i][1]; mxx += bx * bx; mxy += bx * by; myy += by * by; vx += bx * taus[p] * C; vy += by * taus[p] * C; });
+  const det = mxx * myy - mxy * mxy, sx = (myy * vx - mxy * vy) / det, sy = (mxx * vy - mxy * vx) / det;
+  let res = 0;
+  PAIRS.forEach(([i, j], p) => { const e = taus[p] - ((GEOM[j][0] - GEOM[i][0]) * sx + (GEOM[j][1] - GEOM[i][1]) * sy) / C; res += e * e; });
+  const quality = quals.reduce((a, b) => a + b, 0) / 6, residual = Math.sqrt(res / 6) * 1e6, norm = Math.hypot(sx, sy);
+  const az = (Math.atan2(sy, sx) * 180 / Math.PI + 360) % 360;
+  const reasons = [];
+  if (tonal > 0 && tonal < 12 && tonalPower > 0.5 * band) reasons.push("The coherent sound is a narrow tone. Tones give unreliable bearings.");
+  if (quality < 0.3) reasons.push("The microphones do not share enough common sound.");
+  if (residual > 25) reasons.push("Pairwise arrival times do not fit one plane wave.");
+  if (norm < 0.34) reasons.push("Arrival times are near zero on every pair: overhead source or diffuse noise.");
+  if (norm > 1.25) reasons.push("Arrival times are larger than the array allows.");
+  r.bearing = { raw: az, quality: quality, residual: residual, elevation: Math.acos(Math.min(norm, 1)) * 180 / Math.PI, basis: useTonal ? "tonal bins" : "all band bins" };
+  r.reasons = reasons;
+  return r;
+}
+
+function wrap180(a) { return ((a + 180) % 360 + 360) % 360 - 180; }
+
+function step() {
+  // one hop of simulated time: synthesize, then analyze the newest block
+  const wall = performance.now();
+  if (sim.fault === "unplug" || sim.fault === "stall") {
+    if (sim.t >= sim.faultUntil) { if (sim.fault === "unplug") sim.restarts++; sim.fault = null; sim.valid = 0; sim.window = []; sim.track = []; }
+    else { sim.t += HOP / FS; endEvent("ended by fault"); if (sim.fault === "unplug") sim.lastFrameWall = wall; return; }
+  }
+  const hop = synthHop();
+  const lost = sim.fault === "overflow";
+  if (lost) { sim.lost++; sim.valid = 0; sim.window = []; sim.track = []; endEvent("ended by lost samples"); }
+  if (sim.fault === "overflow" || sim.fault === "clip") { if (sim.t >= sim.faultUntil) sim.fault = null; }
+  for (let m = 0; m < 4; m++) { sim.ring[m].copyWithin(0, HOP); sim.ring[m].set(hop[m], BLOCK - HOP); }
+  sim.valid = Math.min(sim.valid + HOP, BLOCK);
+  sim.t += HOP / FS;
+  sim.lastFrameWall = wall;
+  if (sim.valid < BLOCK) { sim.status = { partial: true, lost: lost }; return; }
+  const r = analyze();
+  const usable = r.audio === "OK";
+  if (usable) { sim.levels.push(r.bandDb); if (sim.levels.length > 2344) sim.levels.shift(); }
+  if (sim.levels.length >= 78) { const s = sim.levels.slice().sort((a, b) => a - b); sim.floor = s[Math.floor(0.1 * (s.length - 1))]; }
+  const above = usable && sim.floor !== null ? r.bandDb - sim.floor : null;
+  const checks = { level: above !== null && above >= 6, count: r.harmonic.count >= 4, score: r.harmonic.score >= 0.25 };
+  const qualifies = usable && checks.level && checks.count && checks.score;
+  sim.window.push(qualifies); if (sim.window.length > 6) sim.window.shift();
+  const hits = sim.window.filter(Boolean).length;
+  const was = sim.active;
+  if (!sim.active && hits >= 4) sim.active = true; else if (sim.active && hits <= 1) sim.active = false;
+  // bearing: frame gates, then agreement across frames
+  let bearing = null;
+  const frameOk = usable && r.bearing && r.reasons.length === 0;
+  sim.track.push(frameOk ? r.bearing.raw : null); if (sim.track.length > 5) sim.track.shift();
+  if (frameOk) {
+    const agree = sim.track.filter((a) => a !== null && Math.abs(wrap180(a - r.bearing.raw)) <= 15).length;
+    if (agree >= 3) bearing = r.bearing.raw; else r.reasons.push("Recent frames do not agree on one direction.");
+    r.agree = agree;
+  }
+  const truth = sources(sim.t).map((s) => ({ name: s.name, az: (Math.atan2(s.pos[1], s.pos[0]) * 180 / Math.PI + 360) % 360, pos: s.pos }));
+  if (sim.active && !was) { sim.event = { start: sim.t, f0: [], brg: [], truth: truth.length ? truth.map((s) => s.name).join(" and ") : "none" }; }
+  if (sim.active && sim.event) { if (r.harmonic.f0) sim.event.f0.push(r.harmonic.f0); if (bearing !== null) sim.event.brg.push(bearing); }
+  if (!sim.active && was) endEvent("");
+  sim.status = { r: r, above: above, checks: checks, hits: hits, bearing: bearing, truth: truth, qualifies: qualifies };
+  sim.history.push({ t: sim.t, level: r.bandDb, floor: sim.floor, cand: sim.active, brg: bearing });
+  if (sim.history.length > 600) sim.history.shift();
+}
+function summarize(e) {
+  let s = 0, c = 0; for (const a of e.brg) { s += Math.sin(a * Math.PI / 180); c += Math.cos(a * Math.PI / 180); }
+  e.mean = e.brg.length ? (Math.atan2(s, c) * 180 / Math.PI + 360) % 360 : null;
+  e.f0m = e.f0.length ? e.f0.slice().sort((a, b) => a - b)[e.f0.length >> 1] : null;
+  return e;
+}
+function endEvent(note) {
+  if (!sim.event) return;
+  const e = summarize(sim.event); e.end = sim.t; e.note = note; sim.event = null; sim.active = false;
+  sim.events.unshift(e); if (sim.events.length > 8) sim.events.pop();
+}
+
+// ======================================================================= display
+function fit(canvas) {
+  const ratio = window.devicePixelRatio || 1, w = canvas.clientWidth || canvas.width, h = Math.round(w * canvas.height / canvas.width);
+  if (canvas.dataset.w != w) { canvas.dataset.w = w; canvas.dataset.ar = canvas.height / canvas.width; }
+  const ar = +canvas.dataset.ar;
+  canvas.width = Math.round(w * ratio); canvas.height = Math.round(w * ar * ratio);
+  const g = canvas.getContext("2d"); g.setTransform(ratio, 0, 0, ratio, 0, 0);
+  return { g: g, w: w, h: w * ar };
+}
+function rows(table, list) {
+  table.innerHTML = "";
+  const head = table.insertRow(); ["Measure", "Now", "Needs", "Result"].forEach((t) => { const th = document.createElement("th"); th.textContent = t; head.appendChild(th); });
+  for (const [a, b, c, ok] of list) { const tr = table.insertRow(); [a, b, c].forEach((t) => { tr.insertCell().textContent = t; }); const v = tr.insertCell(); v.className = "v"; v.textContent = ok === null ? "" : (ok ? "✓ met" : "✗ not met"); }
+}
+function num(v, d, u) { return v === null || v === undefined || !isFinite(v) ? "n/a" : v.toFixed(d) + (u ? " " + u : ""); }
+
+function draw() {
+  const now = performance.now(), age = (now - sim.lastFrameWall) / 1000, st = sim.status;
+  const stale = !sim.paused && age > 2.5 && sim.fault !== "unplug";
+  let head = "Starting. Waiting for the first full audio block.", sev = "notice";
+  const live = st && !st.partial && !stale && sim.fault !== "unplug";
+  if (sim.fault === "unplug") { head = "ACQUISITION FAULT. The audio stream stopped. The device may be unplugged. Reconnecting."; sev = "fault"; }
+  else if (stale) { head = "INPUT STALE. No new audio result for " + age.toFixed(0) + " s."; sev = "fault"; }
+  else if (sim.paused) { head = "Paused."; sev = "notice"; }
+  else if (st && st.partial) { head = st.lost ? "Samples were lost (overflow). This block is not analysed." : "Waiting for a full audio block."; sev = st.lost ? "warning" : "notice"; }
+  else if (live && st.r.audio !== "OK") { head = "AUDIO FAULT: clipping. No detection or bearing from this block."; sev = "warning"; }
+  else if (live && sim.active) { head = "Rotor-like sound candidate (heuristic)."; sev = "candidate"; }
+  else if (live && sim.floor === null) { head = "Measuring the ambient floor. Candidates are not raised yet."; sev = "notice"; }
+  else if (live) { head = "Listening. No candidate."; sev = "ok"; }
+  $("headline").textContent = head; $("headline").dataset.s = sev;
+
+  // candidate card
+  if (live && st.r.audio === "OK") {
+    const h = st.r.harmonic;
+    $("cand").textContent = sim.active ? "ROTOR-LIKE SOUND CANDIDATE" : "No candidate";
+    $("candcap").textContent = sim.active ? "Heuristic match on level and harmonic structure. Not an identification. Fans, engines, and other machinery can also match."
+      : (st.qualifies ? "This frame qualifies. Waiting for enough qualifying frames." : "This frame does not qualify.");
+    rows($("candtab"), [
+      ["Level above ambient floor", num(st.above, 1, "dB"), "at least 6 dB", st.checks.level],
+      ["Harmonics standing out", String(h.count), "at least 4", st.checks.count],
+      ["Harmonic comb score (0 to 1)", num(h.score, 2), "at least 0.25", st.checks.score],
+      ["Qualifying frames", st.hits + " of last 6", "at least 4 to start", st.hits >= 4],
+      ["Estimated fundamental", num(h.f0, 1, "Hz"), "information only", null],
+      ["Ambient floor", sim.floor === null ? "measuring" : num(sim.floor, 1, "dBFS"), "information only", null]]);
+  } else { $("cand").textContent = "Not assessed"; $("candcap").textContent = "No current audio result."; $("candtab").innerHTML = ""; }
+
+  // bearing card
+  const reasons = $("reasons"); reasons.innerHTML = "";
+  let shown = null;
+  if (live && st.bearing !== null) { shown = st.bearing; $("brg").textContent = shown.toFixed(0) + " deg local"; }
+  else {
+    $("brg").textContent = "BEARING UNAVAILABLE";
+    const list = live ? st.r.reasons : ["No current audio result."];
+    for (const t of list) { const li = document.createElement("li"); li.textContent = t; reasons.appendChild(li); }
+  }
+  if (live && st.r.bearing) {
+    const b = st.r.bearing;
+    rows($("brgtab"), [["Steered on", b.basis, "information only", null], ["Peak fit (0 to 1)", num(b.quality, 2), "at least 0.3", b.quality >= 0.3],
+      ["Arrival-time misfit", num(b.residual, 1, "us"), "at most 25 us", b.residual <= 25],
+      ["Recent frames agreeing", String(st.r.agree || 0), "at least 3", (st.r.agree || 0) >= 3], ["Elevation hint (coarse)", num(b.elevation, 0, "deg"), "not an output", null]]);
+  } else $("brgtab").innerHTML = "";
+  drawDial(shown, live); drawScene(shown, live); drawSpectrum(live); drawStrip();
+
+  const body = $("events").tBodies[0]; body.innerHTML = "";
+  const listed = (sim.event ? [summarize(Object.assign({}, sim.event, { end: sim.t, open: true }))] : []).concat(sim.events);
+  for (const e of listed) {
+    const tr = body.insertRow();
+    [e.start.toFixed(1) + " s", (e.end - e.start).toFixed(1) + " s" + (e.open ? ", in progress" : ""), num(e.f0m, 0, "Hz"), e.mean === null ? "none" : e.mean.toFixed(0) + " deg", e.truth].forEach((t) => { tr.insertCell().textContent = t; });
+  }
+  $("noevents").hidden = listed.length > 0;
+}
+
+function drawDial(bearing, live) {
+  const { g, w, h } = fit($("dial")); const cx = w / 2, cy = h / 2, R = w * 0.36;
+  g.clearRect(0, 0, w, h); g.strokeStyle = "#b9c2c8"; g.lineWidth = 1.5; g.beginPath(); g.arc(cx, cy, R, 0, 7); g.stroke();
+  g.fillStyle = "#5A5A5C"; g.font = "600 12px Aptos, Segoe UI, Arial"; g.textAlign = "center"; g.textBaseline = "middle";
+  for (let d = 0; d < 360; d += 30) {
+    const a = d * Math.PI / 180, r1 = R - (d % 90 === 0 ? 10 : 5);
+    g.beginPath(); g.moveTo(cx + r1 * Math.cos(a), cy - r1 * Math.sin(a)); g.lineTo(cx + R * Math.cos(a), cy - R * Math.sin(a)); g.stroke();
+  }
+  [[0, "+X 0"], [90, "+Y 90"], [180, "180"], [270, "270"]].forEach(([d, t]) => { const a = d * Math.PI / 180; g.fillText(t, cx + (R + 22) * Math.cos(a), cy - (R + 16) * Math.sin(a)); });
+  if (live) for (const p of sim.history) { if (p.brg === null || sim.t - p.t > 30) continue; const a = p.brg * Math.PI / 180;
+    g.globalAlpha = 0.15 + 0.6 * (1 - (sim.t - p.t) / 30); g.fillStyle = "#2a78d6"; g.beginPath(); g.arc(cx + R * Math.cos(a), cy - R * Math.sin(a), 3, 0, 7); g.fill(); }
+  g.globalAlpha = 1;
+  if (bearing !== null) { const a = bearing * Math.PI / 180; g.strokeStyle = "#2a78d6"; g.lineWidth = 4; g.lineCap = "round"; g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + (R - 6) * Math.cos(a), cy - (R - 6) * Math.sin(a)); g.stroke(); }
+  else { g.fillStyle = "#5A5A5C"; g.font = "700 13px Aptos, Segoe UI, Arial"; g.fillText("no bearing", cx, cy + 30); }
+  g.fillStyle = "#141416"; g.beginPath(); g.arc(cx, cy, 5, 0, 7); g.fill();
+  g.fillStyle = "rgba(98,80,214,.28)"; g.font = "700 22px Aptos, Segoe UI, Arial"; g.fillText("SIMULATED", cx, cy - R * 0.45);
+}
+
+function drawScene(bearing, live) {
+  const { g, w, h } = fit($("scene")); const cx = w / 2, cy = h / 2, span = Math.max(sim.range * 1.35, 30), k = (w / 2 - 14) / span;
+  g.clearRect(0, 0, w, h); g.fillStyle = "#f7f9fa"; g.fillRect(0, 0, w, h);
+  g.strokeStyle = "#e1e6e9"; g.lineWidth = 1;
+  const stepM = span > 160 ? 50 : span > 60 ? 20 : 10;
+  for (let x = -Math.floor(span / stepM) * stepM; x <= span; x += stepM) { g.beginPath(); g.moveTo(cx + x * k, 0); g.lineTo(cx + x * k, h); g.moveTo(0, cy - x * k); g.lineTo(w, cy - x * k); g.stroke(); }
+  g.fillStyle = "#5A5A5C"; g.font = "12px Aptos, Segoe UI, Arial"; g.textAlign = "left"; g.textBaseline = "alphabetic";
+  g.fillRect(14, h - 16, stepM * k, 3); g.fillText(stepM + " m", 14, h - 22);
+  g.fillText("+X", w - 26, cy - 6); g.fillText("+Y", cx + 6, 14);
+  if (bearing !== null) { const a = bearing * Math.PI / 180; g.strokeStyle = "#2a78d6"; g.lineWidth = 3; g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + w * Math.cos(a), cy - w * Math.sin(a)); g.stroke(); }
+  const st = sim.status;
+  for (const s of sources(sim.t)) {
+    const x = cx + s.pos[0] * k, y = cy - s.pos[1] * k;
+    g.setLineDash([4, 4]); g.strokeStyle = "#9aa5ab"; g.lineWidth = 1; g.beginPath(); g.moveTo(cx, cy); g.lineTo(x, y); g.stroke(); g.setLineDash([]);
+    g.fillStyle = s.kind === "rotor" ? "#141416" : s.kind === "fan" ? "#eb6834" : "#6250d6";
+    if (s.kind === "rotor") { for (const [dx, dy] of [[-6, -6], [6, -6], [-6, 6], [6, 6]]) { g.beginPath(); g.arc(x + dx, y + dy, 4, 0, 7); g.fill(); } g.fillRect(x - 6, y - 1.5, 12, 3); g.fillRect(x - 1.5, y - 6, 3, 12); }
+    else { g.beginPath(); g.arc(x, y, 7, 0, 7); g.fill(); }
+    g.fillStyle = "#141416"; g.fillText(s.name + ", " + Math.hypot(s.pos[0], s.pos[1], s.pos[2]).toFixed(0) + " m", x + 12, y - 8);
+  }
+  g.fillStyle = "#1E5470"; g.beginPath(); g.arc(cx, cy, 7, 0, 7); g.fill(); g.fillStyle = "#fff"; g.beginPath(); g.arc(cx, cy, 2.5, 0, 7); g.fill();
+  g.fillStyle = "#141416"; g.fillText("sensor", cx + 10, cy + 16);
+  g.fillStyle = "#5A5A5C"; g.fillText("t = " + sim.t.toFixed(1) + " s", 14, 18);
+}
+
+function drawSpectrum(live) {
+  const { g, w, h } = fit($("spec")); g.clearRect(0, 0, w, h);
+  const L = 38, B = 20, T = 8, kMax = Math.floor(4000 / DF);
+  g.strokeStyle = "#e1e6e9"; g.fillStyle = "#898781"; g.font = "11px Aptos, Segoe UI, Arial"; g.textAlign = "right"; g.textBaseline = "middle";
+  if (!live || sim.status.r.audio !== "OK") { g.textAlign = "center"; g.fillText("No spectrum for the current block.", w / 2, h / 2); return; }
+  const ref = 10 * Math.log10(BLOCK * BLOCK * 0.375 / 2);
+  let top = -200; for (let k = 4; k <= kMax; k++) top = Math.max(top, 10 * Math.log10(power[k] + 1e-30) - ref);
+  top = Math.ceil((top + 5) / 10) * 10; const bottom = top - 80;
+  const px = (k) => L + (w - L - 8) * k / kMax, py = (db) => T + (h - T - B) * (1 - (Math.max(db, bottom) - bottom) / 80);
+  for (let d = bottom; d <= top; d += 20) { g.beginPath(); g.moveTo(L, py(d)); g.lineTo(w - 8, py(d)); g.stroke(); g.fillText(d, L - 5, py(d)); }
+  g.textBaseline = "top"; for (let f = 0; f <= 4000; f += 1000) { g.textAlign = f === 0 ? "left" : f === 4000 ? "right" : "center"; g.fillText(f + " Hz", px(f / DF), h - B + 4); }
+  g.strokeStyle = "#2a78d6"; g.lineWidth = 1.5; g.beginPath();
+  for (let k = 4; k <= kMax; k += 2) { const v = 10 * Math.log10(Math.max(power[k], power[k + 1]) + 1e-30) - ref; if (k === 4) g.moveTo(px(k), py(v)); else g.lineTo(px(k), py(v)); }
+  g.stroke();
+  g.fillStyle = "#eb6834"; for (const f of sim.status.r.harmonic.freqs) { const k = Math.round(f / DF); g.beginPath(); g.arc(px(k), py(10 * Math.log10(power[k] + 1e-30) - ref), 4, 0, 7); g.fill(); }
+  g.fillStyle = "rgba(98,80,214,.28)"; g.font = "700 20px Aptos, Segoe UI, Arial"; g.textBaseline = "middle"; g.textAlign = "right"; g.fillText("SIMULATED DATA", w - 14, T + 16);
+}
+
+function drawStrip() {
+  const { g, w, h } = fit($("strip")); g.clearRect(0, 0, w, h);
+  const L = 38, B = 20, T = 8, rowsH = sim.history.filter((p) => sim.t - p.t <= 75);
+  g.fillStyle = "#898781"; g.font = "11px Aptos, Segoe UI, Arial"; g.textAlign = "center"; g.textBaseline = "middle";
+  if (!rowsH.length) { g.fillText("No history yet.", w / 2, h / 2); return; }
+  let hi = -60, lo = 0; for (const p of rowsH) { hi = Math.max(hi, p.level); lo = Math.min(lo, p.level, p.floor === null ? 0 : p.floor); }
+  hi = Math.ceil((hi + 3) / 10) * 10; lo = Math.min(Math.floor((lo - 3) / 10) * 10, hi - 30);
+  const px = (t) => L + (w - L - 8) * (1 - (sim.t - t) / 75), py = (v) => T + (h - T - B) * (1 - (v - lo) / (hi - lo));
+  g.fillStyle = "#cde2fb"; let start = null;
+  rowsH.forEach((p, i) => { if (p.cand && start === null) start = p.t; if (start !== null && (!p.cand || i === rowsH.length - 1)) { g.fillRect(px(start), T, Math.max(px(p.t) - px(start), 2), h - T - B); start = null; } });
+  g.strokeStyle = "#e1e6e9"; g.fillStyle = "#898781"; g.textAlign = "right";
+  for (let d = lo; d <= hi; d += 10) { g.beginPath(); g.moveTo(L, py(d)); g.lineTo(w - 8, py(d)); g.stroke(); g.fillText(d, L - 5, py(d)); }
+  g.textBaseline = "top"; [["75 s ago", 0, "left"], ["50 s", 1 / 3, "center"], ["25 s", 2 / 3, "center"], ["now", 1, "right"]].forEach(([t, f, align]) => { g.textAlign = align; g.fillText(t, L + (w - L - 8) * f, h - B + 4); });
+  g.setLineDash([6, 4]); g.strokeStyle = "#eb6834"; g.lineWidth = 2; g.beginPath(); let pen = false;
+  for (const p of rowsH) { if (p.floor === null) continue; if (!pen) { g.moveTo(px(p.t), py(p.floor)); pen = true; } else g.lineTo(px(p.t), py(p.floor)); } g.stroke(); g.setLineDash([]);
+  g.strokeStyle = "#2a78d6"; g.beginPath(); rowsH.forEach((p, i) => { if (i === 0) g.moveTo(px(p.t), py(p.level)); else g.lineTo(px(p.t), py(p.level)); }); g.stroke();
+}
+
+// ---- controls and loop
+$("scenario").value = sim.scenario; $("range").value = sim.range; $("noise").value = sim.noiseDb;
+function labels() { $("rangev").textContent = sim.range + " m"; $("noisev").textContent = sim.noiseDb + " dBFS"; }
+labels();
+$("scenario").onchange = (e) => { sim.scenario = e.target.value; };
+$("range").oninput = (e) => { sim.range = +e.target.value; labels(); };
+$("noise").oninput = (e) => { sim.noiseDb = +e.target.value; labels(); };
+$("pause").onclick = () => { sim.paused = !sim.paused; $("pause").textContent = sim.paused ? "Resume" : "Pause"; sim.lastFrameWall = performance.now(); };
+function startFault(f) { sim.fault = f; sim.faultUntil = sim.t + (f === "unplug" ? 6 : f === "stall" ? 7 : f === "clip" ? 1.0 : 0.3); }
+document.querySelectorAll("button.fault").forEach((b) => { b.onclick = () => startFault(b.dataset.fault); });
+const fast = +(Q.get("fast") || 0);
+for (let i = 0; i < fast * FS / HOP; i++) step();
+if (Q.get("fault")) startFault(Q.get("fault"));
+setInterval(() => { if (!sim.paused && !document.getElementById("tab-sim").hidden) step(); }, 1000 * HOP / FS);
+setInterval(() => { if (!document.getElementById("tab-sim").hidden) draw(); }, 250);
+draw();
+
+// self-test hook for automated checks: ?selftest=1 writes estimator results into the page
+if (Q.get("selftest")) {
+  const out = [];
+  for (const [scenario, range, noise] of [["orbit", 40, -62], ["orbit", 120, -62], ["orbit", 250, -50], ["fan", 40, -62], ["tone", 40, -62], ["quiet", 40, -62]]) {
+    Object.assign(sim, { t: 0, scenario: scenario, range: range, noiseDb: noise, valid: 0, levels: [], floor: null, window: [], active: false, event: null, events: [], track: [], history: [], fault: null });
+    let shown = 0, frames = 0, worst = 0, cand = 0, sumErr = 0;
+    for (let i = 0; i < 40 * FS / HOP; i++) {
+      step(); const s = sim.status; if (!s || s.partial || sim.t < 14) continue;
+      frames++; if (sim.active) cand++;
+      if (s.bearing !== null && s.truth.length) { shown++; const e = Math.abs(wrap180(s.bearing - s.truth[0].az)); sumErr += e; worst = Math.max(worst, e); }
+      else if (s.bearing !== null) shown++;
+    }
+    out.push([scenario, range + "m", noise + "dB", "frames=" + frames, "candidateFrames=" + cand, "bearingShown=" + shown, "meanErr=" + (shown ? (sumErr / shown).toFixed(1) : "n/a"), "worstErr=" + worst.toFixed(1), "events=" + (sim.events.length + (sim.event ? 1 : 0))].join(" "));
+  }
+  const pre = document.createElement("pre"); pre.id = "selftest"; pre.textContent = out.join("\n"); document.body.appendChild(pre);
+}
+</script>
+
+<script>
+"use strict";
+// ======================================================================= 3D hardware mock-up (plain WebGL, no libraries)
+(function () {
+  const canvas = $("gl"), stage = $("stage");
+  const gl = canvas.getContext("webgl", { antialias: true, alpha: false, stencil: true });
+  if (!gl) { const d = document.createElement("div"); d.className = "stamp"; d.style.top = "12px"; d.style.bottom = "auto"; d.textContent = "This browser cannot show WebGL graphics, so the 3D view is unavailable."; stage.appendChild(d); return; }
+
+  // ---- small matrix helpers (column-major 4x4)
+  const M = {
+    ident: () => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    mul: (a, b) => { const o = new Array(16); for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++) { let s = 0; for (let k = 0; k < 4; k++) s += a[k * 4 + r] * b[c * 4 + k]; o[c * 4 + r] = s; } return o; },
+    trans: (x, y, z) => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, x, y, z, 1],
+    rotX: (a) => { const c = Math.cos(a), s = Math.sin(a); return [1, 0, 0, 0, 0, c, s, 0, 0, -s, c, 0, 0, 0, 0, 1]; },
+    rotY: (a) => { const c = Math.cos(a), s = Math.sin(a); return [c, 0, -s, 0, 0, 1, 0, 0, s, 0, c, 0, 0, 0, 0, 1]; },
+    rotZ: (a) => { const c = Math.cos(a), s = Math.sin(a); return [c, s, 0, 0, -s, c, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]; },
+    persp: (fov, asp, n, f) => { const t = 1 / Math.tan(fov / 2); return [t / asp, 0, 0, 0, 0, t, 0, 0, 0, 0, (f + n) / (n - f), -1, 0, 0, 2 * f * n / (n - f), 0]; },
+    look: (e, c, u) => {
+      let z = [e[0] - c[0], e[1] - c[1], e[2] - c[2]]; const zl = Math.hypot(z[0], z[1], z[2]); z = z.map((v) => v / zl);
+      let x = [u[1] * z[2] - u[2] * z[1], u[2] * z[0] - u[0] * z[2], u[0] * z[1] - u[1] * z[0]]; const xl = Math.hypot(x[0], x[1], x[2]); x = x.map((v) => v / xl);
+      const y = [z[1] * x[2] - z[2] * x[1], z[2] * x[0] - z[0] * x[2], z[0] * x[1] - z[1] * x[0]];
+      return [x[0], y[0], z[0], 0, x[1], y[1], z[1], 0, x[2], y[2], z[2], 0, -(x[0] * e[0] + x[1] * e[1] + x[2] * e[2]), -(y[0] * e[0] + y[1] * e[1] + y[2] * e[2]), -(z[0] * e[0] + z[1] * e[1] + z[2] * e[2]), 1];
+    },
+  };
+
+  // ---- meshes: interleaved position and normal
+  function mesh(v) { const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(v), gl.STATIC_DRAW); return { buf: b, n: v.length / 6 }; }
+  function quad(v, a, b, c, d, n) { for (const p of [a, b, c, a, c, d]) v.push(p[0], p[1], p[2], n[0], n[1], n[2]); }
+  function boxV(w, h, d) {
+    const x = w / 2, y = h / 2, z = d / 2, v = [];
+    quad(v, [-x, -y, z], [x, -y, z], [x, y, z], [-x, y, z], [0, 0, 1]); quad(v, [x, -y, -z], [-x, -y, -z], [-x, y, -z], [x, y, -z], [0, 0, -1]);
+    quad(v, [x, -y, z], [x, -y, -z], [x, y, -z], [x, y, z], [1, 0, 0]); quad(v, [-x, -y, -z], [-x, -y, z], [-x, y, z], [-x, y, -z], [-1, 0, 0]);
+    quad(v, [-x, y, z], [x, y, z], [x, y, -z], [-x, y, -z], [0, 1, 0]); quad(v, [-x, -y, -z], [x, -y, -z], [x, -y, z], [-x, -y, z], [0, -1, 0]);
+    return v;
+  }
+  function cylV(r, h, seg, r2) {             // axis along Y, centred; r2 lets the top differ (cone)
+    const v = [], y = h / 2; if (r2 === undefined) r2 = r;
+    for (let i = 0; i < seg; i++) {
+      const a0 = 2 * Math.PI * i / seg, a1 = 2 * Math.PI * (i + 1) / seg, c0 = Math.cos(a0), s0 = Math.sin(a0), c1 = Math.cos(a1), s1 = Math.sin(a1);
+      for (const [p, n] of [[[r * c0, -y, r * s0], [c0, 0, s0]], [[r2 * c0, y, r2 * s0], [c0, 0, s0]], [[r2 * c1, y, r2 * s1], [c1, 0, s1]],
+        [[r * c0, -y, r * s0], [c0, 0, s0]], [[r2 * c1, y, r2 * s1], [c1, 0, s1]], [[r * c1, -y, r * s1], [c1, 0, s1]]]) v.push(p[0], p[1], p[2], n[0], n[1], n[2]);
+      for (const p of [[0, y, 0], [r2 * c1, y, r2 * s1], [r2 * c0, y, r2 * s0]]) v.push(p[0], p[1], p[2], 0, 1, 0);
+      for (const p of [[0, -y, 0], [r * c0, -y, r * s0], [r * c1, -y, r * s1]]) v.push(p[0], p[1], p[2], 0, -1, 0);
+    }
+    return v;
+  }
+  function capLowerV(size, holeR, h, seg) {  // square block with a round pocket through it: the lower half of the foam cap
+    const v = [], y = h / 2, s = size / 2;
+    const outer = (a) => { const c = Math.cos(a), sn = Math.sin(a), k = s / Math.max(Math.abs(c), Math.abs(sn)); return [k * c, k * sn]; };
+    for (let i = 0; i < seg; i++) {
+      const a0 = 2 * Math.PI * i / seg, a1 = 2 * Math.PI * (i + 1) / seg;
+      const i0 = [holeR * Math.cos(a0), holeR * Math.sin(a0)], i1 = [holeR * Math.cos(a1), holeR * Math.sin(a1)], o0 = outer(a0), o1 = outer(a1);
+      quad(v, [i0[0], -y, i0[1]], [o0[0], -y, o0[1]], [o1[0], -y, o1[1]], [i1[0], -y, i1[1]], [0, -1, 0]);
+      const n0 = [-Math.cos(a0), 0, -Math.sin(a0)];
+      quad(v, [i1[0], -y, i1[1]], [i1[0], y, i1[1]], [i0[0], y, i0[1]], [i0[0], -y, i0[1]], n0);
+    }
+    quad(v, [-s, -y, s], [s, -y, s], [s, y, s], [-s, y, s], [0, 0, 1]); quad(v, [s, -y, -s], [-s, -y, -s], [-s, y, -s], [s, y, -s], [0, 0, -1]);
+    quad(v, [s, -y, s], [s, -y, -s], [s, y, -s], [s, y, s], [1, 0, 0]); quad(v, [-s, -y, -s], [-s, -y, s], [-s, y, s], [-s, y, -s], [-1, 0, 0]);
+    return v;
+  }
+  function xform(v, m) {                      // bake a transform into mesh data
+    const o = [];
+    for (let i = 0; i < v.length; i += 6) {
+      const x = v[i], y = v[i + 1], z = v[i + 2], nx = v[i + 3], ny = v[i + 4], nz = v[i + 5];
+      o.push(m[0] * x + m[4] * y + m[8] * z + m[12], m[1] * x + m[5] * y + m[9] * z + m[13], m[2] * x + m[6] * y + m[10] * z + m[14],
+        m[0] * nx + m[4] * ny + m[8] * nz, m[1] * nx + m[5] * ny + m[9] * nz, m[2] * nx + m[6] * ny + m[10] * nz);
+    }
+    return o;
+  }
+  function between(a, b, make) {              // a shape whose Y axis runs from point a to point b
+    const d = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], len = Math.hypot(d[0], d[1], d[2]);
+    const yaw = Math.atan2(d[0], d[2]), pitch = Math.acos(Math.max(-1, Math.min(1, d[1] / len)));
+    const m = M.mul(M.trans((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2), M.mul(M.rotY(yaw), M.rotX(pitch)));
+    return xform(make(len), m);
+  }
+  function tube(points, r) { let v = []; for (let i = 0; i + 1 < points.length; i++) v = v.concat(between(points[i], points[i + 1], (len) => cylV(r, len + r, 10))); return v; }
+  function ribbon(points, width, thick) {    // flat band in the XY plane, width along Z
+    let v = [];
+    for (let i = 0; i + 1 < points.length; i++) {
+      const a = points[i], b = points[i + 1], len = Math.hypot(b[0] - a[0], b[1] - a[1]), ang = Math.atan2(b[1] - a[1], b[0] - a[0]);
+      v = v.concat(xform(boxV(len + thick, thick, width), M.mul(M.trans((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, 0), M.rotZ(ang))));
+    }
+    return v;
+  }
+  const at = (v, x, y, z) => xform(v, M.trans(x, y, z));
+
+  // ---- dimensions in millimetres, from the drawings. Y is up. The plate top face is Y = 0.
+  const PLATE = 160, T = 3, PAD = 12.7, CASE_R = 51, CASE_H = 16, CAP = 140, CAP_T = 25.4, POCKET = 12, GROUND = -1000;
+  const caseTop = PAD + CASE_H, capBottom = caseTop - POCKET, capTop = capBottom + CAP_T;
+  const P = (x, y) => [x - 80, -(y - 80)];                        // plate drawing coordinates to scene X and Z
+
+  let plateHoles = [];
+  for (const [hx, hy] of [[15, 15], [145, 15], [15, 145], [145, 145], [150, 110], [150, 126]]) { const [x, z] = P(hx, hy); plateHoles = plateHoles.concat(at(cylV(2.25, T + 0.6, 16), x, -T / 2, z)); }
+  for (const sx of [20, 140]) { const [x] = P(sx, 80); plateHoles = plateHoles.concat(at(boxV(4, T + 0.6, 22), x, -T / 2, 0), at(cylV(2, T + 0.6, 12), x, -T / 2, 11), at(cylV(2, T + 0.6, 12), x, -T / 2, -11)); }
+
+  let mics = [], micRings = [];
+  for (const [mx, mz] of [[33, 33], [33, -33], [-33, -33], [-33, 33]]) { mics = mics.concat(at(cylV(1.3, 0.6, 12), mx, caseTop + 0.25, mz)); micRings = micRings.concat(at(cylV(3.2, 0.3, 16), mx, caseTop + 0.1, mz)); }
+
+  const strapPath = [[-62, 1], [-81.5, 1], [-81.5, -4.4], [-60, -4.4], [-60, 1], [-51.5, caseTop + 1], [51.5, caseTop + 1], [60, 1], [60, -4.4], [81.5, -4.4], [81.5, 1], [62, 1]];
+  const tie = [70, 1.6, (P(150, 110)[1] + P(150, 126)[1]) / 2];
+  // The stand is set low so that the 2 m cable W1 reaches a computer on a small table beside it.
+  const TABLE_TOP = GROUND + 450, HOST = [860, TABLE_TOP, 400], STAND_TIE = [13.5, -260, 0];
+  const cablePath = [[47.3, PAD + 8, -19.1], [58, PAD + 6, -27], [66, 7, -34], tie, [84, -3, -40], [84, -30, -34], [40, -120, -10], STAND_TIE,
+    [150, -520, 70], [300, -640, 150], [450, -610, 250], [555, TABLE_TOP + 4, 330], [HOST[0] - 172, TABLE_TOP + 8, HOST[2] + 40]];
+  let cableMm = 0;
+  for (let i = 0; i + 1 < cablePath.length; i++) cableMm += Math.hypot(cablePath[i + 1][0] - cablePath[i][0], cablePath[i + 1][1] - cablePath[i][1], cablePath[i + 1][2] - cablePath[i][2]);
+  document.body.dataset.cableMm = cableMm.toFixed(0);            // the self-test checks that this is under 2000
+  const elastic = (sgn) => tube([[-65, 0, 65 * sgn], [-71, capBottom, 71 * sgn], [-71, capTop + 1, 71 * sgn], [71, capTop + 1, -71 * sgn], [71, capBottom, -71 * sgn], [65, 0, -65 * sgn]], 1.1);
+
+  const yTop = -T - 10;                                          // underside of the adapter plate
+  let stand = at(cylV(4, 14, 12), 0, yTop + 3, 0).concat(at(cylV(9, 26, 16), 0, yTop - 13, 0), at(cylV(11, 330, 20), 0, yTop - 191, 0), at(cylV(16, 40, 20), 0, yTop - 376, 0),
+    at(cylV(14, (yTop - 396) - (GROUND + 90), 20), 0, (GROUND + 90 + yTop - 396) / 2, 0), at(cylV(18, 50, 20), 0, GROUND + 400, 0), at(cylV(16, 30, 20), 0, GROUND + 130, 0),
+    xform(cylV(5, 34, 12), M.mul(M.trans(24, yTop - 376, 0), M.rotZ(Math.PI / 2))));
+  for (let i = 0; i < 3; i++) {
+    const a = 2 * Math.PI * i / 3 + 0.4, c = Math.cos(a), s = Math.sin(a);
+    stand = stand.concat(between([0, GROUND + 400, 0], [470 * c, GROUND + 9, 470 * s], (len) => cylV(8, len, 12)), between([0, GROUND + 130, 0], [235 * c, GROUND + 204, 235 * s], (len) => cylV(5, len, 8)),
+      at(cylV(11, 10, 12), 470 * c, GROUND + 5, 470 * s));
+  }
+  let bench = at(boxV(600, 20, 450), HOST[0], TABLE_TOP - 10, HOST[2]);
+  for (const [dx, dz] of [[-270, -195], [270, -195], [-270, 195], [270, 195]]) bench = bench.concat(at(cylV(11, 430, 12), HOST[0] + dx, GROUND + 215, HOST[2] + dz));
+  const lid = M.mul(M.trans(HOST[0], TABLE_TOP + 16 + 102, HOST[2] - 115 - 34), M.rotX(-0.32));
+  const laptop = at(boxV(330, 16, 230), HOST[0], TABLE_TOP + 8, HOST[2]).concat(xform(boxV(330, 215, 8), lid));
+  const screen = xform(at(boxV(300, 185, 1), 0, 0, 4.6), lid);
+  const keys = at(boxV(280, 0.6, 105), HOST[0], TABLE_TOP + 16.2, HOST[2] - 35);
+  const ties = at(boxV(3, 6, 22), tie[0], tie[1] + 1, tie[2]).concat(at(cylV(15.6, 4, 20), 2.2, STAND_TIE[1], 0));
+
+  // ---- parts: id matches the item number on drawing SLM-PAS-A01
+  const parts = [
+    { id: 1, name: "Light stand", pn: "Impact LS-8AI", col: [0.13, 0.13, 0.14], spec: 0.5, rough: 0, ex: -75, anchor: [12, -95, 0], far: true, below: true, m: [mesh(stand)] },
+    { id: 12, name: "Sandbag or weight", pn: "commercial", col: [0.25, 0.22, 0.18], spec: 0.05, rough: 0.5, ex: 0, anchor: [130, GROUND + 64, 90], far: true, m: [mesh(at(boxV(300, 60, 180), 130, GROUND + 30, 90))], siteOnly: true },
+    { id: 2, name: "Adapter plate", pn: "SmallRig 4887", col: [0.17, 0.18, 0.2], spec: 0.5, rough: 0, ex: -38, anchor: [45, -8, 25], below: true, m: [mesh(at(boxV(90, 10, 50), 0, -T - 5, 0))] },
+    { id: 4, name: "Screw, 1/4-20 x 1/2 (2)", pn: "McMaster-Carr 91772A537", col: [0.75, 0.76, 0.78], spec: 1.0, rough: 0, ex: 20, anchor: [24, 4.5, 0], deep: true, m: [mesh(at(cylV(6.2, 4.4, 18), 24, 2.2, 0).concat(at(cylV(6.2, 4.4, 18), -24, 2.2, 0)))] },
+    { id: 5, name: "Isolation pad, foam", pn: "SLM-PAS-M02-1", col: [0.3, 0.31, 0.32], spec: 0.02, rough: 1, ex: 45, anchor: [-55, PAD / 2, 55], m: [mesh(at(boxV(110, PAD, 110), 0, PAD / 2, 0))] },
+    { id: 6, name: "Microphone array with case", pn: "Seeed 114993701", col: [0.07, 0.07, 0.08], spec: 0.7, rough: 0, ex: 90, anchor: [0, caseTop, 20], inner: true,
+      m: [mesh(at(cylV(CASE_R, CASE_H, 64), 0, PAD + CASE_H / 2, 0))],
+      extra: [{ m: mesh(micRings), col: [0.8, 0.82, 0.84], spec: 0.4 }, { m: mesh(mics), col: [0.01, 0.01, 0.01], spec: 0 },
+        { m: mesh(at(cylV(40, 0.3, 48), 0, caseTop + 0.05, 0)), col: [0.16, 0.17, 0.19], spec: 0.5 }, { m: mesh(at(cylV(37.5, 0.35, 48), 0, caseTop + 0.07, 0)), col: [0.07, 0.07, 0.08], spec: 0.7 },
+        { m: mesh(at(boxV(4, 4, 10), 50.5 * Math.cos(0.384), PAD + 7, -50.5 * Math.sin(0.384))), col: [0.7, 0.7, 0.72], spec: 0.9 }] },
+    { id: 8, name: "Strap, hook and loop", pn: "StarTech B506I-HOOK-LOOP-TIES", col: [0.05, 0.05, 0.06], spec: 0.08, rough: 0.6, ex: 90, anchor: [-82.5, -2, 0], m: [mesh(ribbon(strapPath, 20, 1.4))] },
+    { id: 9, name: "Cable W1, USB-C to USB-A, 2 m", pn: "StarTech USB2AC2M", col: [0.07, 0.07, 0.08], spec: 0.3, rough: 0, ex: 0, anchor: [84, -30, -34], m: [mesh(tube(cablePath, 1.9))] },
+    { id: 10, name: "Cable tie (2)", pn: "commercial", col: [0.9, 0.9, 0.88], spec: 0.2, rough: 0, ex: 0, anchor: tie, m: [mesh(ties)] },
+    { id: 7, name: "Windscreen cap, foam", pn: "SLM-PAS-M02-2", col: [0.17, 0.18, 0.19], spec: 0.02, rough: 1, ex: 160, anchor: [45, capTop, 45], cap: true,
+      m: [mesh(at(boxV(CAP, CAP_T - POCKET, CAP), 0, capBottom + POCKET + (CAP_T - POCKET) / 2, 0).concat(at(capLowerV(CAP, 52, POCKET, 48), 0, capBottom + POCKET / 2, 0)))] },
+    { id: 11, name: "Elastic loop (2)", pn: "commercial", col: [0.02, 0.02, 0.02], spec: 0.1, rough: 0, ex: 160, anchor: [-71, capTop, 71], cap: true, m: [mesh(elastic(1).concat(elastic(-1)))] },
+    { id: 3, name: "Carrier plate, polycarbonate", pn: "SLM-PAS-M01", col: [0.78, 0.9, 0.95], spec: 1.0, rough: 0, ex: 0, alpha: 0.2, anchor: [-76, 0, 76], m: [mesh(at(boxV(PLATE, T, PLATE), 0, -T / 2, 0))],
+      extra: [{ m: mesh(plateHoles), col: [0.03, 0.03, 0.04], spec: 0 }] },
+    { id: 0, name: "Host computer", pn: "existing PC", col: [0.3, 0.31, 0.33], spec: 0.5, rough: 0, ex: 0, anchor: [HOST[0] + 150, TABLE_TOP + 235, HOST[2] - 150], siteOnly: true, far: true, m: [mesh(laptop)],
+      extra: [{ m: mesh(screen), col: [0.12, 0.33, 0.44], spec: 0.3, glow: 0.7 }, { m: mesh(keys), col: [0.12, 0.12, 0.13], spec: 0.1 }] },
+    { id: -9, name: "Table (stand-in)", pn: "", col: [0.62, 0.6, 0.56], spec: 0.15, rough: 0.15, ex: 0, anchor: [0, 0, 0], siteOnly: true, nochip: true, m: [mesh(bench)] },
+  ];
+
+  // ---- shaders
+  const VS = "attribute vec3 aP; attribute vec3 aN; uniform mat4 uVP; uniform vec3 uOff; uniform vec3 uL; uniform float uShadow; uniform float uGround; varying vec3 vN; varying vec3 vW;" +
+    "void main(){ vec3 w = aP + uOff; if (uShadow > 0.5) { w = w - uL * ((w.y - uGround) / uL.y); w.y = uGround + 0.6; } vW = w; vN = aN; gl_Position = uVP * vec4(w, 1.0); }";
+  const FSH = "precision mediump float; uniform vec3 uCol; uniform vec3 uCam; uniform vec3 uLf; uniform float uA; uniform float uSpec; uniform float uRough; uniform float uGlow; uniform float uShadowF; uniform float uHot; uniform float uGroundMode; varying vec3 vN; varying vec3 vW;" +
+    "float hash(vec3 p){ return fract(sin(dot(floor(p), vec3(12.9898, 78.233, 37.719))) * 43758.5453); }" +
+    "void main(){ if (uShadowF > 0.5) { gl_FragColor = vec4(0.0, 0.0, 0.0, 0.3); return; }" +
+    " vec3 n = normalize(vN); vec3 v = normalize(uCam - vW); if (dot(n, v) < 0.0) n = -n; vec3 l = normalize(uLf); vec3 h = normalize(l + v);" +
+    " vec3 base = uCol; if (uGroundMode > 0.5) { base = vec3(0.66, 0.69, 0.67); vec2 g = abs(fract(vW.xz / 500.0) - 0.5); if (min(g.x, g.y) < 0.006) base *= 0.93; }" +
+    " if (uRough > 0.0) base *= 1.0 - uRough * 0.55 * (hash(vW * 0.9) - 0.35) - uRough * 0.25 * hash(vW * 0.31);" +
+    " float diff = max(dot(n, l), 0.0); vec3 amb = mix(vec3(0.30, 0.29, 0.27), vec3(0.50, 0.55, 0.62), n.y * 0.5 + 0.5);" +
+    " float sp = pow(max(dot(n, h), 0.0), 60.0) * uSpec; float fr = pow(1.0 - max(dot(n, v), 0.0), 3.0);" +
+    " vec3 c = base * (amb + diff * 0.85) + vec3(sp) + fr * uSpec * 0.18 + base * uGlow + vec3(0.12, 0.33, 0.44) * uHot;" +
+    " if (uGroundMode > 0.5) c = mix(c, vec3(0.85, 0.89, 0.91), smoothstep(2500.0, 11000.0, length(vW.xz - uCam.xz)));" +
+    " float a = uA + (1.0 - uA) * fr * 0.7; gl_FragColor = vec4(c, a); }";
+  function shader(type, src) { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; }
+  const prog = gl.createProgram(); gl.attachShader(prog, shader(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FSH)); gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+  gl.useProgram(prog);
+  const U = {}; for (const n of ["uVP", "uOff", "uL", "uLf", "uShadow", "uShadowF", "uGround", "uCol", "uCam", "uA", "uSpec", "uRough", "uGlow", "uHot", "uGroundMode"]) U[n] = gl.getUniformLocation(prog, n);
+  const aP = gl.getAttribLocation(prog, "aP"), aN = gl.getAttribLocation(prog, "aN");
+  const ground = mesh(at(boxV(60000, 2, 60000), 0, GROUND - 1, 0));
+
+  // ---- camera and controls
+  const VIEWS = { head: { yaw: 0.75, pitch: 0.42, dist: 520, target: [0, 12, 0] }, top: { yaw: 0.0, pitch: 1.5, dist: 520, target: [0, 10, 0] },
+    under: { yaw: 0.9, pitch: -0.35, dist: 520, target: [0, 0, 0] }, site: { yaw: 0.62, pitch: 0.2, dist: 2900, target: [400, -520, 180] } };
+  const cam = Object.assign({}, VIEWS.head, { target: VIEWS.head.target.slice() });
+  let goal = null, explode = 0, hot = -1, view = "head";
+  function setView(name) { view = name; goal = { yaw: VIEWS[name].yaw, pitch: VIEWS[name].pitch, dist: VIEWS[name].dist, target: VIEWS[name].target.slice() }; }
+  document.querySelectorAll("[data-view]").forEach((b) => { b.onclick = () => setView(b.dataset.view); });
+  $("explode").oninput = (e) => { explode = e.target.value / 100; };
+  // one pointer turns the view; two pointers moving apart or together zoom it
+  const pointers = new Map(); let spread = 0;
+  const gap = () => { const p = Array.from(pointers.values()); return Math.hypot(p[0][0] - p[1][0], p[0][1] - p[1][1]); };
+  canvas.addEventListener("pointerdown", (e) => {
+    pointers.set(e.pointerId, [e.clientX, e.clientY]); goal = null;
+    try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* a scripted pointer cannot be captured */ }
+    if (pointers.size === 2) spread = gap();
+  });
+  canvas.addEventListener("pointermove", (e) => {
+    const last = pointers.get(e.pointerId); if (!last) return;
+    pointers.set(e.pointerId, [e.clientX, e.clientY]);
+    if (pointers.size === 1) { cam.yaw -= (e.clientX - last[0]) * 0.008; cam.pitch = Math.max(-1.2, Math.min(1.55, cam.pitch + (e.clientY - last[1]) * 0.008)); }
+    else if (pointers.size === 2) { const now = gap(); if (spread > 0 && now > 0) cam.dist = Math.max(180, Math.min(9000, cam.dist * spread / now)); spread = now; }
+  });
+  const release = (e) => { pointers.delete(e.pointerId); spread = 0; };
+  canvas.addEventListener("pointerup", release); canvas.addEventListener("pointercancel", release);
+  canvas.addEventListener("wheel", (e) => { e.preventDefault(); goal = null; cam.dist = Math.max(180, Math.min(9000, cam.dist * Math.exp(e.deltaY * 0.001))); }, { passive: false });
+
+  if (Q.get("selftest")) {                                       // scripted drag and pinch, checked by tools/check_demo.py
+    const fire = (type, id, x, y) => canvas.dispatchEvent(new PointerEvent(type, { pointerId: id, clientX: x, clientY: y, bubbles: true }));
+    const before = [cam.yaw, cam.dist];
+    fire("pointerdown", 11, 100, 100); fire("pointermove", 11, 150, 100); fire("pointerup", 11, 150, 100);
+    const turned = Math.abs(cam.yaw - before[0]) > 0.3;
+    fire("pointerdown", 11, 100, 100); fire("pointerdown", 12, 200, 100); fire("pointermove", 12, 300, 100); fire("pointerup", 11, 100, 100); fire("pointerup", 12, 300, 100);
+    const zoomed = cam.dist < before[1] * 0.6;
+    document.body.dataset.gesture = turned && zoomed && pointers.size === 0 ? "ok" : "fail";
+    cam.yaw = before[0]; cam.dist = before[1];
+  }
+
+  // ---- parts table and item chips
+  const table = $("parts"), chips = {};
+  const head = table.insertRow(); ["Item", "Part", "Part number"].forEach((t) => { const th = document.createElement("th"); th.textContent = t; head.appendChild(th); });
+  for (const p of parts.filter((q) => !q.nochip).sort((a, b) => (a.id || 99) - (b.id || 99))) {
+    const tr = table.insertRow(); tr.insertCell().textContent = p.id ? p.id : "A2"; tr.insertCell().textContent = p.name; tr.insertCell().textContent = p.pn;
+    tr.onmouseenter = () => { hot = p.id; tr.classList.add("hot"); }; tr.onmouseleave = () => { hot = -1; tr.classList.remove("hot"); };
+    const c = document.createElement("div"); c.className = "chip"; c.textContent = p.id ? p.id : "A2"; stage.appendChild(c); chips[p.id] = c;
+  }
+
+  function offsetOf(p) { return explode * p.ex; }
+  function drawMesh(m, off) { gl.bindBuffer(gl.ARRAY_BUFFER, m.buf); gl.vertexAttribPointer(aP, 3, gl.FLOAT, false, 24, 0); gl.vertexAttribPointer(aN, 3, gl.FLOAT, false, 24, 12); gl.uniform3f(U.uOff, 0, off, 0); gl.drawArrays(gl.TRIANGLES, 0, m.n); }
+  function shadowPass(on) { gl.uniform1f(U.uShadow, on); gl.uniform1f(U.uShadowF, on); }
+  function material(col, a, spec, rough, glow, isHot) { gl.uniform3fv(U.uCol, col); gl.uniform1f(U.uA, a); gl.uniform1f(U.uSpec, spec); gl.uniform1f(U.uRough, rough || 0); gl.uniform1f(U.uGlow, glow || 0); gl.uniform1f(U.uHot, isHot ? 1 : 0); }
+
+  function frame(time) {
+    if (!$("tab-3d").hidden || Q.get("tab") === "3d") {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2), w = canvas.clientWidth, h = canvas.clientHeight;
+      if (canvas.width !== Math.round(w * ratio) || canvas.height !== Math.round(h * ratio)) { canvas.width = Math.round(w * ratio); canvas.height = Math.round(h * ratio); }
+      if (goal) { for (const k of ["yaw", "pitch", "dist"]) cam[k] += (goal[k] - cam[k]) * 0.12; for (let i = 0; i < 3; i++) cam.target[i] += (goal.target[i] - cam.target[i]) * 0.12; }
+      if ($("spin").checked && pointers.size === 0) cam.yaw += 0.004;
+      const site = view === "site", far = cam.dist > 1400, capOn = $("capon").checked, xray = $("xray").checked;
+      // the exploded stack is taller, so the camera backs off and looks a little higher while it is open
+      const lift = far ? 0 : 55 * explode, dist = cam.dist * (far ? 1 : 1 + 0.3 * explode), look = [cam.target[0], cam.target[1] + lift, cam.target[2]];
+      const cp = Math.cos(cam.pitch), eye = [look[0] + dist * cp * Math.sin(cam.yaw), look[1] + dist * Math.sin(cam.pitch), look[2] + dist * cp * Math.cos(cam.yaw)];
+      const vp = M.mul(M.persp(0.6, w / h, Math.max(dist / 60, 5), 40000), M.look(eye, look, [0, 1, 0]));
+      gl.viewport(0, 0, canvas.width, canvas.height); gl.clearColor(0.85, 0.89, 0.91, 1); gl.clearStencil(0);
+      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
+      gl.enable(gl.DEPTH_TEST); gl.enableVertexAttribArray(aP); gl.enableVertexAttribArray(aN);
+      gl.uniformMatrix4fv(U.uVP, false, new Float32Array(vp)); gl.uniform3fv(U.uCam, eye); gl.uniform3f(U.uL, 0.45, 0.8, 0.4); gl.uniform3f(U.uLf, 0.45, 0.8, 0.4); gl.uniform1f(U.uGround, GROUND);
+      shadowPass(0); gl.disable(gl.BLEND); gl.depthMask(true);
+      gl.uniform1f(U.uGroundMode, 1); material([0.7, 0.72, 0.7], 1, 0.0, 0); drawMesh(ground, 0); gl.uniform1f(U.uGroundMode, 0);
+      const visible = parts.filter((p) => (!p.siteOnly || site || far) && (!p.cap || capOn));
+      // shadows on the ground, drawn straight after it. The stencil lets each pixel darken once however many faces cover it.
+      if (eye[1] > GROUND) {
+        gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.disable(gl.DEPTH_TEST); gl.depthMask(false);
+        gl.enable(gl.STENCIL_TEST); gl.stencilFunc(gl.EQUAL, 0, 255); gl.stencilOp(gl.KEEP, gl.KEEP, gl.INCR); shadowPass(1);
+        for (const p of visible) { if (p.alpha) continue; for (const m of p.m) drawMesh(m, offsetOf(p)); }
+        shadowPass(0); gl.disable(gl.STENCIL_TEST); gl.enable(gl.DEPTH_TEST); gl.depthMask(true); gl.disable(gl.BLEND);
+      }
+      for (const p of visible) {
+        if (p.alpha || (p.cap && xray && p.id === 7)) continue;
+        material(p.col, 1, p.spec, p.rough, 0, hot === p.id); for (const m of p.m) drawMesh(m, offsetOf(p));
+        for (const e of p.extra || []) { material(e.col, 1, e.spec, 0, e.glow, hot === p.id); drawMesh(e.m, offsetOf(p)); }
+      }
+      for (const p of visible) if (p.alpha) for (const e of p.extra || []) { material(e.col, 1, e.spec, 0, 0, false); drawMesh(e.m, offsetOf(p)); }
+      // see-through parts last
+      gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.depthMask(false);
+      for (const p of visible) {
+        const see = p.alpha || (p.cap && xray && p.id === 7); if (!see) continue;
+        material(p.col, p.alpha || 0.28, p.spec, p.rough, 0, hot === p.id); for (const m of p.m) drawMesh(m, offsetOf(p));
+      }
+      gl.depthMask(true); gl.disable(gl.BLEND);
+      // item chips
+      const show = $("labels").checked;
+      for (const p of parts) {
+        const c = chips[p.id]; if (!c) continue;
+        // no label floats over a part that is covered: by the foam cap, by the pad, or by distance in the wide view
+        const covered = (p.inner && capOn && !xray && explode < 0.15) || (p.deep && explode < 0.15) || (far && !p.far) || (p.below && cam.pitch > 0.9);
+        if (!show || covered || visible.indexOf(p) < 0) { c.style.display = "none"; continue; }
+        const x = p.anchor[0], y = p.anchor[1] + offsetOf(p), z = p.anchor[2];
+        const cw = vp[3] * x + vp[7] * y + vp[11] * z + vp[15];
+        if (cw <= 0) { c.style.display = "none"; continue; }
+        const sx = (vp[0] * x + vp[4] * y + vp[8] * z + vp[12]) / cw, sy = (vp[1] * x + vp[5] * y + vp[9] * z + vp[13]) / cw;
+        c.style.display = Math.abs(sx) < 1 && Math.abs(sy) < 1 ? "flex" : "none"; c.style.left = ((sx * 0.5 + 0.5) * w) + "px"; c.style.top = ((0.5 - sy * 0.5) * h) + "px";
+        c.classList.toggle("hot", hot === p.id);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  if (Q.get("view")) { const v = VIEWS[Q.get("view")]; if (v) { view = Q.get("view"); Object.assign(cam, v, { target: v.target.slice() }); } }
+  if (Q.get("explode")) { explode = +Q.get("explode") / 100; $("explode").value = Q.get("explode"); }
+  if (Q.get("xray")) $("xray").checked = Q.get("xray") === "1";
+  if (Q.get("nocap")) $("capon").checked = false;
+  requestAnimationFrame(frame);
+})();
+
+// ---- tabs
+function showTab(name) {
+  $("tab-sim").hidden = name !== "sim"; $("tab-3d").hidden = name !== "3d";
+  if (name === "sim") sim.lastFrameWall = performance.now();      // the simulation pauses while its tab is hidden; that is not a stale input
+  $("tabbtn-sim").classList.toggle("on", name === "sim"); $("tabbtn-3d").classList.toggle("on", name === "3d");
+}
+$("tabbtn-sim").onclick = () => showTab("sim"); $("tabbtn-3d").onclick = () => showTab("3d");
+if (Q.get("tab") === "3d") showTab("3d");
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="431.8mm" height="279.4mm" viewBox="0 0 431.8 279.4">
+<rect width="431.8" height="279.4" fill="#FFFFFF"/>
+<g font-family="Aptos, 'Segoe UI', Arial, Helvetica, sans-serif" stroke-linecap="butt" stroke-linejoin="round">
+<path d="M15.000 10.000 L416.800 10.000 L416.800 269.400 L15.000 269.400 Z" fill="none" stroke="#141416" stroke-width="0.7"/>
+<text x="65.225" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">4</text>
+<text x="65.225" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">4</text>
+<path d="M115.450 7.000 L115.450 10.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M115.450 269.400 L115.450 272.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="165.675" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">3</text>
+<text x="165.675" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">3</text>
+<path d="M215.900 7.000 L215.900 10.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M215.900 269.400 L215.900 272.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="266.125" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">2</text>
+<text x="266.125" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">2</text>
+<path d="M316.350 7.000 L316.350 10.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M316.350 269.400 L316.350 272.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="366.575" y="7.000" font-size="3.640" text-anchor="middle" fill="#5A5A5C">1</text>
+<text x="366.575" y="275.200" font-size="3.640" text-anchor="middle" fill="#5A5A5C">1</text>
+<text x="10.000" y="43.425" font-size="3.640" text-anchor="middle" fill="#5A5A5C">D</text>
+<text x="421.800" y="43.425" font-size="3.640" text-anchor="middle" fill="#5A5A5C">D</text>
+<path d="M12.000 74.850 L15.000 74.850" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M416.800 74.850 L419.800 74.850" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="10.000" y="108.275" font-size="3.640" text-anchor="middle" fill="#5A5A5C">C</text>
+<text x="421.800" y="108.275" font-size="3.640" text-anchor="middle" fill="#5A5A5C">C</text>
+<path d="M12.000 139.700 L15.000 139.700" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M416.800 139.700 L419.800 139.700" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="10.000" y="173.125" font-size="3.640" text-anchor="middle" fill="#5A5A5C">B</text>
+<text x="421.800" y="173.125" font-size="3.640" text-anchor="middle" fill="#5A5A5C">B</text>
+<path d="M12.000 204.550 L15.000 204.550" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M416.800 204.550 L419.800 204.550" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="10.000" y="237.975" font-size="3.640" text-anchor="middle" fill="#5A5A5C">A</text>
+<text x="421.800" y="237.975" font-size="3.640" text-anchor="middle" fill="#5A5A5C">A</text>
+<path d="M266.800 10.000 L416.800 10.000 L416.800 15.000 L266.800 15.000 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.25"/>
+<text x="341.800" y="13.600" font-size="3.360" text-anchor="middle" fill="#FFFFFF" font-weight="bold">REVISIONS</text>
+<path d="M266.800 15.000 L416.800 15.000 L416.800 20.000 L266.800 20.000 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="272.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">REV</text>
+<text x="324.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">DESCRIPTION</text>
+<text x="381.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">DATE</text>
+<text x="404.800" y="18.500" font-size="2.800" text-anchor="middle" fill="#1E5470" font-weight="bold">APPROVED</text>
+<text x="272.800" y="23.800" font-size="3.080" text-anchor="middle" fill="#141416">A</text>
+<text x="280.300" y="23.800" font-size="3.080" text-anchor="start" fill="#141416">INITIAL ISSUE. REPLACES REV B SKETCHES</text>
+<text x="381.800" y="23.800" font-size="3.080" text-anchor="middle" fill="#141416">2026-11-10</text>
+<text x="404.800" y="23.800" font-size="3.080" text-anchor="middle" fill="#141416"></text>
+<path d="M266.800 10.000 L416.800 10.000 L416.800 25.500 L266.800 25.500 Z" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M266.800 15.000 L416.800 15.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M266.800 20.000 L416.800 20.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 15.000 L278.800 25.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M370.800 15.000 L370.800 25.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M392.800 15.000 L392.800 25.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M216.800 219.400 L416.800 219.400 L416.800 269.400 L216.800 269.400 Z" fill="none" stroke="#141416" stroke-width="0.7"/>
+<path d="M278.800 219.400 L278.800 269.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M336.800 219.400 L336.800 269.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<text x="218.300" y="222.800" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">UNLESS OTHERWISE SPECIFIED</text>
+<text x="218.300" y="227.000" font-size="2.940" text-anchor="start" fill="#141416">DIMENSIONS ARE IN MILLIMETERS</text>
+<text x="218.300" y="230.600" font-size="2.940" text-anchor="start" fill="#141416">TOLERANCES:</text>
+<text x="218.300" y="234.200" font-size="2.940" text-anchor="start" fill="#141416">    LINEAR  ±2</text>
+<text x="218.300" y="237.800" font-size="2.940" text-anchor="start" fill="#141416">    HAND-CUT FOAM PARTS</text>
+<text x="218.300" y="241.400" font-size="2.940" text-anchor="start" fill="#141416">INTERPRET PER ASME Y14.5-2018</text>
+<path d="M216.800 252.400 L278.800 252.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<circle cx="225.800" cy="260.900" r="3.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<circle cx="225.800" cy="260.900" r="1.500" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M221.800 260.900 L243.800 260.900" fill="none" stroke="#141416" stroke-width="0.25" stroke-dasharray="8 1.5 1.5 1.5"/>
+<path d="M233.800 259.400 L241.800 257.900 L241.800 263.900 L233.800 262.400 Z" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="243.800" y="258.000" font-size="2.380" text-anchor="start" fill="#141416">THIRD ANGLE PROJECTION</text>
+<text x="243.800" y="264.800" font-size="2.380" text-anchor="start" fill="#141416" font-weight="bold">DO NOT SCALE DRAWING</text>
+<path d="M278.800 225.400 L336.800 225.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 231.400 L336.800 231.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 237.400 L336.800 237.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 243.400 L336.800 243.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M294.800 219.400 L294.800 243.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M318.800 219.400 L318.800 243.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M278.800 219.400 L336.800 219.400 L336.800 225.400 L278.800 225.400 Z" fill="#F0F4F6" stroke="#141416" stroke-width="0.25"/>
+<text x="296.300" y="223.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">NAME</text>
+<text x="320.300" y="223.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">DATE</text>
+<text x="280.300" y="229.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">DRAWN</text>
+<text x="296.300" y="229.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="320.300" y="229.600" font-size="2.940" text-anchor="start" fill="#141416">2026-11-10</text>
+<text x="280.300" y="235.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">CHECKED</text>
+<text x="296.300" y="235.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="320.300" y="235.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="280.300" y="241.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">APPROVED</text>
+<text x="296.300" y="241.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="320.300" y="241.600" font-size="2.940" text-anchor="start" fill="#141416"></text>
+<text x="280.300" y="246.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">MATERIAL</text>
+<text x="280.300" y="250.000" font-size="2.800" text-anchor="start" fill="#141416">RETICULATED POLYURETHANE</text>
+<text x="280.300" y="253.100" font-size="2.800" text-anchor="start" fill="#141416">FOAM, 30 PPI. SEE NOTE 1</text>
+<path d="M278.800 254.400 L336.800 254.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="280.300" y="257.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">FINISH</text>
+<text x="280.300" y="260.800" font-size="2.800" text-anchor="start" fill="#141416">NONE</text>
+<path d="M278.800 262.400 L336.800 262.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="280.300" y="265.400" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">STATUS</text>
+<text x="292.800" y="267.000" font-size="3.220" text-anchor="start" fill="#141416" font-weight="bold">PRELIMINARY</text>
+<path d="M336.800 219.400 L416.800 219.400 L416.800 231.400 L336.800 231.400 Z" fill="#1C1C1E" stroke="#141416" stroke-width="0.25"/>
+<path d="M336.800 230.200 L416.800 230.200 L416.800 231.400 L336.800 231.400 Z" fill="#1E5470" stroke="#1E5470" stroke-width="0.25"/>
+<text x="376.800" y="227.000" font-size="5.273" text-anchor="middle" fill="#FFFFFF" font-weight="bold">S&amp;L MILESTONE SOLUTIONS</text>
+<text x="338.300" y="234.800" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">TITLE</text>
+<text x="376.800" y="240.400" font-size="4.399" text-anchor="middle" fill="#141416" font-weight="bold">FOAM PAD AND WINDSCREEN CAP</text>
+<text x="376.800" y="245.000" font-size="3.013" text-anchor="middle" fill="#141416">PASSIVE ACOUSTIC SENSOR NODE, SENSOR HEAD</text>
+<path d="M336.800 247.400 L416.800 247.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M348.800 247.400 L348.800 259.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M400.800 247.400 L400.800 259.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="338.300" y="250.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">SIZE</text>
+<text x="342.800" y="257.600" font-size="5.880" text-anchor="middle" fill="#141416" font-weight="bold">B</text>
+<text x="350.300" y="250.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">DWG NO</text>
+<text x="374.800" y="257.400" font-size="5.600" text-anchor="middle" fill="#141416" font-weight="bold">SLM-PAS-M02</text>
+<text x="402.300" y="250.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">REV</text>
+<text x="408.800" y="257.600" font-size="5.880" text-anchor="middle" fill="#141416" font-weight="bold">A</text>
+<path d="M336.800 259.400 L416.800 259.400" fill="none" stroke="#141416" stroke-width="0.35"/>
+<path d="M362.800 259.400 L362.800 269.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M390.800 259.400 L390.800 269.400" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="338.300" y="262.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">SCALE</text>
+<text x="349.800" y="267.400" font-size="3.920" text-anchor="middle" fill="#141416" font-weight="bold">1:2</text>
+<text x="364.300" y="262.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">PROJECT</text>
+<text x="376.800" y="267.400" font-size="3.080" text-anchor="middle" fill="#141416">PAS NODE</text>
+<text x="392.300" y="262.600" font-size="2.380" text-anchor="start" fill="#1E5470" font-weight="bold">SHEET</text>
+<text x="403.800" y="267.400" font-size="3.920" text-anchor="middle" fill="#141416" font-weight="bold">1 OF 1</text>
+<path d="M48.000 46.000 L103.000 46.000 L103.000 101.000 L48.000 101.000 Z" fill="none" stroke="#141416" stroke-width="0.5"/>
+<path d="M70.500 73.500 L80.500 73.500" fill="none" stroke="#141416" stroke-width="0.25" stroke-dasharray="8 1.5 1.5 1.5"/>
+<path d="M75.500 68.500 L75.500 78.500" fill="none" stroke="#141416" stroke-width="0.25" stroke-dasharray="8 1.5 1.5 1.5"/>
+<path d="M48.000 102.500 L48.000 112.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M103.000 102.500 L103.000 112.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M48.000 110.000 L71.581 110.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M79.419 110.000 L103.000 110.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M48.000 110.000 L51.000 109.500 L51.000 110.500 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M103.000 110.000 L100.000 110.500 L100.000 109.500 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="75.500" y="110.900" font-size="3.500" text-anchor="middle" fill="#141416">110</text>
+<path d="M46.500 46.000 L36.000 46.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M46.500 101.000 L36.000 101.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M38.000 46.000 L38.000 71.250" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M38.000 75.750 L38.000 101.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M38.000 46.000 L38.500 49.000 L37.500 49.000 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M38.000 101.000 L37.500 98.000 L38.500 98.000 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="38.000" y="74.400" font-size="3.500" text-anchor="middle" fill="#141416">110</text>
+<path d="M125.000 46.000 L131.350 46.000 L131.350 101.000 L125.000 101.000 Z" fill="none" stroke="#141416" stroke-width="0.5"/>
+<path d="M125.000 44.500 L125.000 36.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M131.350 44.500 L131.350 36.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M119.000 38.000 L125.000 38.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M131.350 38.000 L171.418 38.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M125.000 38.000 L122.000 38.500 L122.000 37.500 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M131.350 38.000 L134.350 37.500 L134.350 38.500 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="136.850" y="37.000" font-size="3.500" text-anchor="start" fill="#141416">12.7  (1/2 IN SHEET)</text>
+<text x="89.500" y="121.000" font-size="4.480" text-anchor="middle" fill="#141416" font-weight="bold">-1  ISOLATION PAD</text>
+<path d="M68.715 122.200 L110.285 122.200" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="89.500" y="126.200" font-size="3.220" text-anchor="middle" fill="#141416">SCALE 1:2.  QTY 1</text>
+<path d="M48.000 150.000 L118.000 150.000 L118.000 220.000 L48.000 220.000 Z" fill="none" stroke="#141416" stroke-width="0.5"/>
+<circle cx="83.000" cy="185.000" r="26.000" fill="none" stroke="#141416" stroke-width="0.25" stroke-dasharray="2.5 1.2"/>
+<path d="M83.000 146.000 L83.000 224.000" fill="none" stroke="#141416" stroke-width="0.25" stroke-dasharray="8 1.5 1.5 1.5"/>
+<path d="M39.000 185.000 L127.000 185.000" fill="none" stroke="#141416" stroke-width="0.7" stroke-dasharray="12 2 2 2 2 2"/>
+<path d="M39.000 185.000 L39.000 178.000" fill="none" stroke="#141416" stroke-width="0.5"/>
+<path d="M39.000 176.000 L39.700 179.500 L38.300 179.500 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="39.000" y="174.000" font-size="5.040" text-anchor="middle" fill="#141416" font-weight="bold">A</text>
+<path d="M127.000 185.000 L127.000 178.000" fill="none" stroke="#141416" stroke-width="0.5"/>
+<path d="M127.000 176.000 L127.700 179.500 L126.300 179.500 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="127.000" y="174.000" font-size="5.040" text-anchor="middle" fill="#141416" font-weight="bold">A</text>
+<path d="M46.500 150.000 L27.000 150.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M46.500 220.000 L27.000 220.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M29.000 150.000 L29.000 182.750" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M29.000 187.250 L29.000 220.000" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M29.000 150.000 L29.500 153.000 L28.500 153.000 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M29.000 220.000 L28.500 217.000 L29.500 217.000 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="29.000" y="185.900" font-size="3.500" text-anchor="middle" fill="#141416">140</text>
+<text x="83.000" y="232.000" font-size="4.480" text-anchor="middle" fill="#141416" font-weight="bold">-2  WINDSCREEN CAP, TOP VIEW</text>
+<path d="M46.907 233.200 L119.093 233.200" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="83.000" y="237.200" font-size="3.220" text-anchor="middle" fill="#141416">SCALE 1:2.  QTY 1</text>
+<path d="M152.000 180.200 L153.550 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M152.000 182.400 L155.750 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M152.000 184.600 L157.950 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M152.000 186.800 L160.150 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M152.000 189.000 L161.000 180.000" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M152.000 191.200 L161.000 182.200" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M154.050 191.350 L161.000 184.400" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M156.250 191.350 L161.000 186.600" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M158.450 191.350 L161.000 188.800" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M160.650 191.350 L161.000 191.000" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M213.000 180.800 L215.150 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M213.000 183.000 L217.350 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M213.000 185.200 L219.550 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M213.000 187.400 L221.750 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M213.000 189.600 L222.000 180.600" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M213.450 191.350 L222.000 182.800" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M215.650 191.350 L222.000 185.000" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M217.850 191.350 L222.000 187.200" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M220.050 191.350 L222.000 189.400" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M161.000 180.000 L162.350 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M161.000 182.200 L164.550 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M161.000 184.400 L166.750 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M162.250 185.350 L168.950 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M164.450 185.350 L171.150 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M166.650 185.350 L173.350 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M168.850 185.350 L175.550 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M171.050 185.350 L177.750 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M173.250 185.350 L179.950 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M175.450 185.350 L182.150 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M177.650 185.350 L184.350 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M179.850 185.350 L186.550 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M182.050 185.350 L188.750 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M184.250 185.350 L190.950 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M186.450 185.350 L193.150 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M188.650 185.350 L195.350 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M190.850 185.350 L197.550 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M193.050 185.350 L199.750 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M195.250 185.350 L201.950 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M197.450 185.350 L204.150 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M199.650 185.350 L206.350 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M201.850 185.350 L208.550 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M204.050 185.350 L210.750 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M206.250 185.350 L212.950 178.650" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M208.450 185.350 L213.000 180.800" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M210.650 185.350 L213.000 183.000" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M212.850 185.350 L213.000 185.200" fill="none" stroke="#141416" stroke-width="0.18"/>
+<path d="M152.000 178.650 L222.000 178.650 L222.000 191.350 L213.000 191.350 L213.000 185.350 L161.000 185.350 L161.000 191.350 L152.000 191.350 Z" fill="none" stroke="#141416" stroke-width="0.5"/>
+<path d="M152.000 177.150 L152.000 167.650" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M222.000 177.150 L222.000 167.650" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M152.000 169.650 L183.081 169.650" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M190.919 169.650 L222.000 169.650" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M152.000 169.650 L155.000 169.150 L155.000 170.150 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M222.000 169.650 L219.000 170.150 L219.000 169.150 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="187.000" y="170.550" font-size="3.500" text-anchor="middle" fill="#141416">140</text>
+<path d="M161.000 192.850 L161.000 202.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M213.000 192.850 L213.000 202.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M161.000 200.350 L165.889 200.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M208.111 200.350 L213.000 200.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M161.000 200.350 L164.000 199.850 L164.000 200.850 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M213.000 200.350 L210.000 200.850 L210.000 199.850 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="187.000" y="201.250" font-size="3.500" text-anchor="middle" fill="#141416">Ø104 POCKET  (NOTE 3)</text>
+<path d="M223.500 178.650 L234.000 178.650" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M223.500 191.350 L234.000 191.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M232.000 178.650 L232.000 191.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M232.000 178.650 L232.500 181.650 L231.500 181.650 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M232.000 191.350 L231.500 188.350 L232.500 188.350 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="234.000" y="185.900" font-size="3.500" text-anchor="start" fill="#141416">25.4  (1 IN SHEET)</text>
+<path d="M159.500 185.350 L141.000 185.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M150.500 191.350 L141.000 191.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M143.000 179.350 L143.000 185.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M143.000 191.350 L143.000 197.350" fill="none" stroke="#141416" stroke-width="0.25"/>
+<path d="M143.000 185.350 L142.500 182.350 L143.500 182.350 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<path d="M143.000 191.350 L143.500 194.350 L142.500 194.350 Z" fill="#141416" stroke="#141416" stroke-width="0.25"/>
+<text x="141.500" y="199.850" font-size="3.500" text-anchor="end" fill="#141416">12</text>
+<text x="187.000" y="213.350" font-size="4.480" text-anchor="middle" fill="#141416" font-weight="bold">SECTION A-A</text>
+<path d="M172.440 214.550 L201.560 214.550" fill="none" stroke="#141416" stroke-width="0.25"/>
+<text x="187.000" y="218.550" font-size="3.220" text-anchor="middle" fill="#141416">SCALE 1:2</text>
+<text x="270.000" y="37.000" font-size="3.920" text-anchor="start" fill="#1E5470" font-weight="bold">NOTES:</text>
+<text x="270.000" y="41.950" font-size="3.360" text-anchor="start" fill="#141416">1.</text>
+<text x="276.000" y="41.950" font-size="3.360" text-anchor="start" fill="#141416">MATERIAL: RETICULATED (OPEN-CELL) POLYURETHANE FOAM,</text>
+<text x="276.000" y="45.900" font-size="3.360" text-anchor="start" fill="#141416">30 PORES PER INCH. THE FOAM FACTORY FILTER FOAM OR</text>
+<text x="276.000" y="49.850" font-size="3.360" text-anchor="start" fill="#141416">EQUIVALENT. -1 FROM 1/2 IN SHEET, -2 FROM 1 IN SHEET.</text>
+<text x="270.000" y="54.600" font-size="3.360" text-anchor="start" fill="#141416">2.</text>
+<text x="276.000" y="54.600" font-size="3.360" text-anchor="start" fill="#141416">CUT WITH A LONG SHARP BLADE. DO NOT COMPRESS THE FOAM</text>
+<text x="276.000" y="58.550" font-size="3.360" text-anchor="start" fill="#141416">WHILE CUTTING.</text>
+<text x="270.000" y="63.300" font-size="3.360" text-anchor="start" fill="#141416">3.</text>
+<text x="276.000" y="63.300" font-size="3.360" text-anchor="start" fill="#141416">CUT THE POCKET IN -2 TO A LIGHT SLIP FIT OVER THE MEASURED</text>
+<text x="276.000" y="67.250" font-size="3.360" text-anchor="start" fill="#141416">CASE. Ø104 ASSUMES A Ø102 CASE, WHICH IS NOT VERIFIED.</text>
+<text x="270.000" y="72.000" font-size="3.360" text-anchor="start" fill="#141416">4.</text>
+<text x="276.000" y="72.000" font-size="3.360" text-anchor="start" fill="#141416">THE POCKET IS BLIND. LEAVE AT LEAST 12 OF FOAM ABOVE THE</text>
+<text x="276.000" y="75.950" font-size="3.360" text-anchor="start" fill="#141416">MICROPHONE PORTS.</text>
+<text x="270.000" y="80.700" font-size="3.360" text-anchor="start" fill="#141416">5.</text>
+<text x="276.000" y="80.700" font-size="3.360" text-anchor="start" fill="#141416">RELIEVE -1 LOCALLY OVER THE HEADS OF THE ASSEMBLY SCREWS</text>
+<text x="276.000" y="84.650" font-size="3.360" text-anchor="start" fill="#141416">IF THE CASE ROCKS (SLM-PAS-A01 NOTE 5).</text>
+<text x="270.000" y="89.400" font-size="3.360" text-anchor="start" fill="#141416">6.</text>
+<text x="276.000" y="89.400" font-size="3.360" text-anchor="start" fill="#141416">FOAM IS PART OF THE ACOUSTIC PATH. REPEAT THE BEARING</text>
+<text x="276.000" y="93.350" font-size="3.360" text-anchor="start" fill="#141416">CALIBRATION (TEST HB-5) AFTER FITTING OR CHANGING -2.</text>
+<text x="270.000" y="98.100" font-size="3.360" text-anchor="start" fill="#141416">7.</text>
+<text x="276.000" y="98.100" font-size="3.360" text-anchor="start" fill="#141416">PRELIMINARY. THESE PARTS HAVE NOT BEEN CUT OR FITTED.</text>
+</g></svg>

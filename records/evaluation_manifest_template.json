@@ -1,0 +1,19 @@
+{
+  "schema": "pasensor.evaluation-manifest.v1",
+  "guard_s": 1.0,
+  "sessions": [
+    {
+      "wav": "recordings/site1/BACKGROUND_FILE.wav",
+      "session_id": "site1-2026-11-20-background-1",
+      "truth": []
+    },
+    {
+      "wav": "recordings/site1/FLIGHT_FILE.wav",
+      "session_id": "site1-2026-11-20-flight-1",
+      "truth": [
+        {"start_s": 62.0, "end_s": 121.0, "label": "drone", "bearing_local_deg": 135.0},
+        {"start_s": 185.0, "end_s": 240.0, "label": "drone", "bearing_track": [[185.0, 200.0], [212.0, 180.0], [240.0, 160.0]]}
+      ]
+    }
+  ]
+}

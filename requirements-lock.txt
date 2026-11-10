@@ -1,0 +1,6 @@
+# Exact versions used for the Revision B verification run on 2026-11-09 (Python 3.14.7, Windows 11 x64).
+# Install with: python -m pip install -r requirements-lock.txt
+cffi==2.1.1
+numpy==2.5.4
+pycparser==3.12
+sounddevice==0.5.6

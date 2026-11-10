@@ -1,0 +1,38 @@
+Demo page check, software 0.2.2
+Run on 2026-11-10 with: python tools/check_demo.py --screenshots docs/images/demo
+The scenes are simulated in the browser. These results describe the demo logic only, not hardware.
+The pictures in docs/images/demo were written by this run.
+
+browser: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+page:    demo/index.html (68014 bytes)
+
+self-test output (simulated scenes, simplified JavaScript estimator):
+  orbit 40m -62dB      frames=204  candidateFrames=204  bearingShown=204  meanErr=0.7  worstErr=1.5  events=1
+  orbit 120m -62dB     frames=204  candidateFrames=204  bearingShown=204  meanErr=0.9  worstErr=2  events=1
+  orbit 250m -50dB     frames=204  candidateFrames=0  bearingShown=189  meanErr=4  worstErr=14.7  events=0
+  fan 40m -62dB        frames=204  candidateFrames=204  bearingShown=204  meanErr=1.1  worstErr=6.5  events=1
+  tone 40m -62dB       frames=204  candidateFrames=0  bearingShown=0  meanErr=n/a  worstErr=0  events=0
+  quiet 40m -62dB      frames=204  candidateFrames=0  bearingShown=0  meanErr=n/a  worstErr=0  events=0
+
+PASS  page ran with no script errors (none)
+PASS  self-test reported 6 of 6 scenes
+PASS  cable W1 path in the 3D mock-up is 1338 mm, under the 2000 mm cable
+PASS  3D view: a scripted one-pointer drag turns it and a two-pointer spread zooms it (ok)
+PASS  simulated multirotor at 40 m: candidate on every frame, mean bearing error 0.7 deg
+PASS  simulated multirotor at 120 m: mean bearing error 0.9 deg
+PASS  simulated multirotor below the level gate raises no candidate
+PASS  simulated machine hum raises a candidate: the heuristic cannot tell it from a rotor, and the page says so
+PASS  single tone: no candidate and no bearing
+PASS  ambient noise only: no candidate and no bearing
+PASS  narrow screen: in a 390 px wide frame the sensor tab is 390 px wide and the 3D tab is 390 px wide, and the 3D view and its parts table are stacked
+wrote sensor_candidate.png
+wrote sensor_false_alert_source.png
+wrote sensor_tone_rejected.png
+wrote sensor_input_stale.png
+wrote hardware_head.png
+wrote hardware_exploded.png
+wrote hardware_from_above.png
+wrote hardware_from_below.png
+wrote hardware_deployed.png
+
+demo check passed

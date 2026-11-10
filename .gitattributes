@@ -1,0 +1,2 @@
+# Keep every file byte for byte, so SHA256SUMS.txt still matches after a clone on any system.
+* -text

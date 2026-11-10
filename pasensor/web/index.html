@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passive acoustic sensor</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body class="no-contact">
+<header class="topbar">
+  <div class="mode" id="mode" data-mode="">CONNECTING</div>
+  <div class="ident"><span id="node">node</span><span class="muted" id="version"></span></div>
+  <div class="clock"><span id="data-time">no data</span><span class="muted" id="age"></span></div>
+</header>
+
+<section class="headline" id="headline" data-severity="notice" role="status" aria-live="polite">
+  <span class="icon" id="headline-icon" aria-hidden="true"></span>
+  <span id="headline-text">Connecting to the sensor process.</span>
+  <span class="flags" id="flags"></span>
+</section>
+
+<main class="grid">
+  <article class="card" id="card-acq">
+    <h2>Acquisition</h2>
+    <p class="big" id="acq-status">unknown</p>
+    <dl class="facts" id="acq-facts"></dl>
+  </article>
+
+  <article class="card" id="card-audio">
+    <h2>Audio quality</h2>
+    <p class="big" id="audio-status">unknown</p>
+    <svg id="meters" class="meters" viewBox="0 0 300 96" role="img" aria-label="Level of each raw microphone in dB relative to full scale"></svg>
+    <dl class="facts" id="audio-facts"></dl>
+  </article>
+
+  <article class="card" id="card-proc">
+    <h2>Processing and storage</h2>
+    <dl class="facts" id="proc-facts"></dl>
+    <h2 class="sub">Sound identity</h2>
+    <p class="big small" id="identity-label">Not assessed</p>
+    <p class="caption" id="identity-caption"></p>
+  </article>
+
+  <article class="card wide" id="card-cand">
+    <h2>Sound candidate <span class="tag">heuristic score, not a probability</span></h2>
+    <p class="big" id="cand-label">Not assessed</p>
+    <p class="caption" id="cand-caption"></p>
+    <table class="evidence" id="cand-evidence" aria-label="Evidence for the candidate decision"></table>
+    <div class="chart-head">
+      <h3>Spectrum of the current block</h3>
+      <div class="legend"><span class="key line s1"></span>power, dB re full scale<span class="key dot s2"></span>detected harmonics</div>
+    </div>
+    <div class="chart" id="spectrum-wrap"><svg id="spectrum" viewBox="0 0 640 190" role="img" aria-label="Spectrum of the current audio block with detected harmonics marked"></svg><div class="tip" id="spectrum-tip" hidden></div></div>
+  </article>
+
+  <article class="card" id="card-bearing">
+    <h2>Bearing <span class="tag">direction only, no range</span></h2>
+    <p class="big" id="bearing-label">BEARING UNAVAILABLE</p>
+    <p class="badges" id="bearing-badges"></p>
+    <svg id="dial" class="dial" viewBox="-130 -130 260 260" role="img" aria-label="Apparent sound direction in the array frame"></svg>
+    <p class="caption" id="bearing-caption"></p>
+    <ul class="reasons" id="bearing-reasons"></ul>
+    <table class="evidence" id="bearing-evidence" aria-label="Bearing quality metrics"></table>
+  </article>
+
+  <article class="card wide" id="card-history">
+    <div class="chart-head">
+      <h2>Band level and ambient floor</h2>
+      <div class="legend"><span class="key line s1"></span>band level<span class="key line s2 dashed"></span>ambient floor<span class="key band"></span>candidate active</div>
+    </div>
+    <div class="chart" id="level-wrap"><svg id="level" viewBox="0 0 640 170" role="img" aria-label="Band level and ambient floor over the last minute"></svg><div class="tip" id="level-tip" hidden></div></div>
+    <div class="chart-head">
+      <h2>Harmonic comb score</h2>
+      <div class="legend"><span class="key line s1"></span>score, 0 to 1<span class="key line thr"></span>threshold</div>
+    </div>
+    <div class="chart" id="score-wrap"><svg id="score" viewBox="0 0 640 120" role="img" aria-label="Harmonic comb score over the last minute"></svg><div class="tip" id="score-tip" hidden></div></div>
+  </article>
+
+  <article class="card full" id="card-events">
+    <h2>Candidate events <span class="tag">newest first, kept in memory only</span></h2>
+    <div class="table-scroll">
+      <table class="events" id="events">
+        <thead><tr><th>Onset (UTC)</th><th>Mode</th><th>Duration</th><th>Median f0</th><th>Max score</th><th>Max above floor</th><th>Bearing (mean)</th><th>Bearing unavailable</th><th>Identity</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="caption" id="events-empty">No candidates yet.</p>
+  </article>
+</main>
+
+<footer class="foot">
+  Research prototype. Candidates come from an untrained heuristic. Bearings are apparent directions of sound and can be wrong when sound reflects or several sources overlap. The software measures no range and identifies no aircraft.
+</footer>
+<script src="/app.js"></script>
+</body>
+</html>

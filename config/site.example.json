@@ -1,0 +1,34 @@
+{
+  "schema": "pasensor.site.v1",
+  "temperature_c": 20.0,
+  "limits": {
+    "min_crossing_deg": 20.0,
+    "max_relative_error": 0.5,
+    "max_range_m": null,
+    "max_time_spread_s": null
+  },
+  "nodes": [
+    {
+      "node_id": "ACOUSTIC-01",
+      "east_m": 0.0,
+      "north_m": 0.0,
+      "position_sigma_m": 0.5,
+      "heading_deg": 0.0,
+      "heading_sigma_deg": 2.0,
+      "face_up": true,
+      "bearing_sigma_deg": 5.0,
+      "clock_sigma_s": 0.05
+    },
+    {
+      "node_id": "ACOUSTIC-02",
+      "east_m": 60.0,
+      "north_m": 0.0,
+      "position_sigma_m": 0.5,
+      "heading_deg": 90.0,
+      "heading_sigma_deg": 2.0,
+      "face_up": true,
+      "bearing_sigma_deg": 5.0,
+      "clock_sigma_s": 0.05
+    }
+  ]
+}
