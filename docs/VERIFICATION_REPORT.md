@@ -1,6 +1,6 @@
 # Verification report
 
-Revision B, software 0.2.2. The automated tests and the demo checks ran on 10 November 2026 for 0.2.2. The drawing set is unchanged from 0.2.1, which the tests confirm byte for byte, so the drawings were not read by eye again. Sections 2 and 5 and the dashboard checks in section 4 are the 9 November 2026 results for software 0.2.0. They were not repeated because no file under `pasensor/` changed in 0.2.1 or 0.2.2 except the version number.
+Revision B, software 0.2.3. The automated tests ran on 10 November 2026 for 0.2.3. The demo checks are the 0.2.2 results, because the demo page is unchanged. The public copy of the demo page was also loaded from its web address on 10 November 2026, and its self-test passed there. The drawing set is unchanged from 0.2.1, which the tests confirm byte for byte, so the drawings were not read by eye again. Sections 2 and 5 and the dashboard checks in section 4 are the 9 November 2026 results for software 0.2.0. They were not repeated because no file under `pasensor/` changed in 0.2.1, 0.2.2, or 0.2.3 except the version number.
 
 ## Summary
 
@@ -123,7 +123,7 @@ These ran on the development PC with no array attached. No microphone was opened
 
 | Check | Observed |
 |---|---|
-| `install_windows.ps1` in a clean copy of the 0.2.0 package | Created the environment, installed NumPy 2.5.4 and sounddevice 0.5.6, ran 173 tests (172 passed, 1 skipped), exit code 0, 127 s. Not repeated for 0.2.1 or 0.2.2 |
+| `install_windows.ps1` in a clean copy of the 0.2.0 package | Created the environment, installed NumPy 2.5.4 and sounddevice 0.5.6, ran 173 tests (172 passed, 1 skipped), exit code 0, 127 s. Not repeated for 0.2.1, 0.2.2, or 0.2.3 |
 | `python -m pasensor devices` through the real PortAudio library | Listed 11 input endpoints. None offers six inputs, as expected without the array |
 | `python -m pasensor run --mode live` with no array | Reported "No input device name contains 'xvf3800'" with the inputs it saw, retried with backoff, opened no capture device, and stopped cleanly |
 | `app.py --help` and a simulated run from the installed copy | Both worked |
@@ -168,6 +168,7 @@ Recorded so the history is honest.
 10. The first 3D mock-up failed to start in the browser (a shader setting that must match between two programs did not). The page's own error banner showed it. Fixed.
 11. The first 3D deployed view ran the cable much further than the 2 m cable in the parts list allows. The stand was lowered and the path is now checked.
 12. On a phone-width screen the 3D tab of the demo page did not stack into one column. An inline style overrode the narrow-screen rule. Found while preparing a hosted copy of the page. Fixed in 0.2.2, and the demo check now covers it.
+13. Five dashboard server tests failed with Windows error 10048 while 0.2.3 was being verified. The test PC had used up its outgoing network ports, so the test client could not connect to the test server. This was a state of the PC, not a fault in the server. The test client now picks its own source port when that happens, and all five pass.
 
 ## 8. What remains unverified
 

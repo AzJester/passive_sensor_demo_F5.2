@@ -1,5 +1,6 @@
 """What the operator is shown: status labels, stale handling, the local server, and the command line."""
 import http.client
+import random
 import json
 import re
 import subprocess
@@ -161,8 +162,24 @@ class ServerTests(unittest.TestCase):
         cls.server.server_close()
 
     def request(self, path, method="GET", host=None):
+        headers = {"Host": host or f"127.0.0.1:{self.port}"}
         connection = http.client.HTTPConnection("127.0.0.1", self.port, timeout=5)
-        connection.request(method, path, headers={"Host": host or f"127.0.0.1:{self.port}"})
+        try:
+            connection.request(method, path, headers=headers)
+        except OSError as error:
+            if getattr(error, "winerror", None) != 10048:
+                raise
+            # Windows has no free outgoing port to give this client. That is a state of the test PC, not of the server.
+            # Pick a source port outside the range Windows assigns from, and try again.
+            for source_port in random.sample(range(30000, 40000), 40):
+                connection = http.client.HTTPConnection("127.0.0.1", self.port, timeout=5, source_address=("127.0.0.1", source_port))
+                try:
+                    connection.request(method, path, headers=headers)
+                    break
+                except OSError:
+                    connection.close()
+            else:
+                raise
         response = connection.getresponse()
         body = response.read()
         connection.close()

@@ -1,4 +1,4 @@
-Automated test run, Revision B, software 0.2.2
+Automated test run, Revision B, software 0.2.3
 Command: python -m unittest discover -s tests -t . -v
 Python 3.14.7, NumPy 2.5.4, sounddevice 0.5.6, Windows 11 x64, Intel Core Ultra 7 155H. Run on 2026-11-10.
 Log lines printed by the software under test (injected faults) are part of the expected output.
@@ -248,6 +248,6 @@ test_training_command_reports_dataset_problems (tests.test_tools.TrainingTests.t
 test_whole_groups_go_to_one_partition (tests.test_tools.TrainingTests.test_whole_groups_go_to_one_partition) ... ok
 
 ----------------------------------------------------------------------
-Ran 178 tests in 126.040s
+Ran 178 tests in 99.535s
 
 OK (skipped=1)

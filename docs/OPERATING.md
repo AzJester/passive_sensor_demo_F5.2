@@ -1,6 +1,6 @@
 # Operating instructions
 
-Revision B, software 0.2.2. For installation see `README.md`.
+Revision B, software 0.2.3. For installation see `README.md`.
 
 ## 1. Three modes, always stated
 

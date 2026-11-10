@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.2.3, Revision B, 2026-11-10
+
+The sensor software, the drawing set, and the demonstration page are unchanged. This release puts the public demo address at the top of the README.
+
+### Added
+
+- `README.md`: the public demo address, at the top.
+- `tests/test_package.py`: the README must carry the public demo address in its first lines.
+
+### Changed
+
+- `tools/make_release.py`: the `executive_brief` folder is not part of the release archive. The brief describes the package.
+- The release archive now also holds `.gitattributes` and `.github/workflows/pages.yml`. Both came with the move to GitHub: the first keeps files byte for byte, and the second publishes the `demo` folder as the public demo page.
+
+### Fixed
+
+- `tests/test_dashboard.py`: five dashboard server tests failed with Windows error 10048 when the test PC had no free outgoing network port. The test client now picks its own source port in that case. What the tests check is unchanged.
+
 ## 0.2.2, Revision B, 2026-11-10
 
 The sensor software and the drawing set are unchanged from 0.2.1. This release fixes the demonstration page on narrow screens.

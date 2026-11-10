@@ -1,6 +1,10 @@
 # Passive acoustic UAS sensor prototype
 
-Revision B, software version 0.2.2, 10 November 2026.
+**Try the demo in your browser:** https://azjester.github.io/passive_sensor_demo_F5.2/
+
+The demo runs in any current browser and installs nothing. Everything in it is simulated or drawn. No hardware has been built or tested.
+
+Revision B, software version 0.2.3, 10 November 2026.
 
 A sensor node that listens with a four-microphone USB array, flags rotor-like sound with a transparent heuristic, estimates the direction the sound comes from, and shows its evidence and its own health on a local dashboard. It processes everything on the computer it runs on and needs no network. It is passive: it listens, records only when told to, and transmits nothing.
 
@@ -19,7 +23,7 @@ A sensor node that listens with a four-microphone USB array, flags rotor-like so
 
 ## Look first, without installing anything
 
-- Open `demo/index.html` in a browser. It shows a simulated sensor and a 3D mock-up of the hardware. Everything in it is simulated or drawn, and it says so.
+- Open `demo/index.html` in a browser. It shows a simulated sensor and a 3D mock-up of the hardware. Everything in it is simulated or drawn, and it says so. The same page is public at the address above.
 - Open `hardware/drawings/SLM-PAS-DRAWING-SET.pdf` for the S&L Milestone Solutions engineering drawings. They are revision A, PRELIMINARY. Nothing has been built from them.
 
 ## Install on Windows

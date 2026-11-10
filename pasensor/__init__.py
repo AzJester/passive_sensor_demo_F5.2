@@ -6,7 +6,7 @@ apparent bearing of the sound source. It does not identify aircraft and it
 does not estimate range from a single array.
 """
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 REVISION = "B"
 STATUS_SCHEMA = "pasensor.status.v1"
 EVENT_SCHEMA = "pasensor.event.v1"

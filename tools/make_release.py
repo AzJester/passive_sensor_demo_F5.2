@@ -14,7 +14,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EXCLUDED_DIRS = {".venv", "__pycache__", "dist", "recordings", "logs", ".git", ".claude"}
+EXCLUDED_DIRS = {".venv", "__pycache__", "dist", "recordings", "logs", ".git", ".claude", "executive_brief"}    # the brief describes the package, so it is not part of it
 EXCLUDED_FILES = {"SHA256SUMS.txt"}
 EXCLUDED_NAMES = {"node.json"}          # a unit's own configuration is not part of the release
 

@@ -50,6 +50,7 @@ class PackageTests(unittest.TestCase):
 
     def test_documents_the_readme_points_to_exist(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("https://azjester.github.io/passive_sensor_demo_F5.2/", "\n".join(readme.splitlines()[:6]), "the public demo link belongs at the top")
         for name in re.findall(r"`((?:docs|hardware|firmware|records|config|tools|legacy|demo)/[A-Za-z0-9_./-]*)`", readme):
             self.assertTrue((ROOT / name).exists(), name)
         for name in ("docs/AUDIT.md", "docs/REQUIREMENTS.md", "docs/TEST_PROCEDURES.md", "docs/VERIFICATION_REPORT.md",

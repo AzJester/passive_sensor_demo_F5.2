@@ -1,6 +1,6 @@
 # Known limitations and unresolved engineering decisions
 
-Revision B, software 0.2.2, 10 November 2026. Read this before relying on anything the sensor shows.
+Revision B, software 0.2.3, 10 November 2026. Read this before relying on anything the sensor shows.
 
 ## What has not been verified at all
 

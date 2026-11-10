@@ -1,6 +1,6 @@
 # Requirements baseline and verification traceability
 
-Revision B, 10 November 2026. Software version 0.2.2.
+Revision B, 10 November 2026. Software version 0.2.3.
 
 ## How to read the status column
 
